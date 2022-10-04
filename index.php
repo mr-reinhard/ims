@@ -1,7 +1,13 @@
 <!-- 
     Program ini tidak berlisensi.
-    di design dan dibuat untuk memenuhi syarat kelulusan
-    Izaac Reinhard Latuwael
+    di design dan dibuat untuk memenuhi syarat kelulusan di president university
+
+
+    Nama    : Izaac Reinhard Latuwael
+    NIM     : 012201605036
+    Faculty : Computer Science
+    Major   : Information System
+    Batch   : 2016
  -->
 <!DOCTYPE html>
 <html lang="en">
@@ -155,7 +161,7 @@
           class="d-flex flex-column flex-md-row text-center text-md-start justify-content-between py-4 px-4 px-xl-5 bg-secondary">
           <!-- Copyright -->
           <div class="text-white mb-3 mb-md-0">
-            Copyright © 2022. Izaac Reinhard Latuwael | 012201605036 | Bubur PU
+            Copyright © 2022. ----- ----- ----- | ------ | ---- --
           </div>
           <!-- Copyright -->
       

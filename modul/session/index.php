@@ -1,13 +1,6 @@
 <!-- 
     Program ini tidak berlisensi.
-    di design dan dibuat untuk memenuhi syarat kelulusan di president university
-
-
-    Nama    : Izaac Reinhard Latuwael
-    NIM     : 012201605036
-    Faculty : Computer Science
-    Major   : Information System
-    Batch   : 2016
+    di design dan dibuat untuk memenuhi syarat kelulusan
  -->
 <!DOCTYPE html>
 <html lang="en">

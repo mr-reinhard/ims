@@ -1,5 +1,5 @@
 function notifikasi_super_user(){
-    Command: toastr["warning"]("Anda memasuki SUPER USER", "PERINGATAN !")
+    Command: toastr["info"]("Anda memasuki SUPER USER", "INFO")
 
     toastr.options =
     {

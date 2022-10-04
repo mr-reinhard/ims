@@ -7,11 +7,6 @@
     <title>PT. Rheinland Systems Indonesia</title>
 </head>
 <body>
-    <h1>1</h1>
-    <h2>2</h2>
-    <h3>3</h3>
-    <h1>4</h1>
-    <h1>5</h1>
-    <h1>6</h1>
+    
 </body>
 </html>

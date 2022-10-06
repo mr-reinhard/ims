@@ -5,73 +5,167 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Nunito:400,600|Open+Sans:400,600,700" rel="stylesheet">
-    <link rel="stylesheet" href="../css/spur.css">
+    <link rel="stylesheet" href="../../asset/css/spur.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.min.js"></script>
-    <script src="../js/chart-js-config.js"></script>
+    <script src="../../asset/js/chart-js-config.js"></script>
     <title>IMS - Inventory Management Systems</title>
 </head>
 
 <body>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            // ajax here
+        });
+    </script>
+
     <div class="dash">
         <div class="dash-nav dash-nav-dark">
             <header>
                 <a href="#!" class="menu-toggle">
                     <i class="fas fa-bars"></i>
                 </a>
-                <a href="index.html" class="spur-logo"><i class="fas fa-bolt"></i> <span>IMS</span></a>
+                <a href="index.html"> <!---class="spur-logo"--->
+                    
+                    <span>< [ nama_login ] ></span>
+                </a>
             </header>
             <nav class="dash-nav-list">
+
                 <a href="index.html" class="dash-nav-item">
-                    <i class="fas fa-home"></i> Dashboard </a>
+                    <i class="fas fa-home"></i>Beranda
+                </a>
+
                 <div class="dash-nav-dropdown">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
-                        <i class="fas fa-chart-bar"></i> Charts </a>
+                        <i class="fas fa-people-arrows"></i> Partner </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="chartjs.html" class="dash-nav-dropdown-item">Chart.js</a>
+
+                        <a href="#" class="dash-nav-dropdown-item">
+                            <i class="fas fa-users"></i>
+                            &nbsp;
+                            Customer
+                        </a>
+
+                        <a href="#" class="dash-nav-dropdown-item">
+                            <i class="fas fa-users"></i>
+                            &nbsp;
+                            Vendor
+                        </a>
+                        
                     </div>
                 </div>
-                <div class="dash-nav-dropdown ">
+
+                <div class="dash-nav-dropdown">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
-                        <i class="fas fa-cube"></i> Components </a>
+                        <i class="fas fa-warehouse"></i> Gudang </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="cards.html" class="dash-nav-dropdown-item">Cards</a>
-                        <a href="forms.html" class="dash-nav-dropdown-item">Forms</a>
-                        <div class="dash-nav-dropdown ">
-                            <a href="#" class="dash-nav-dropdown-item dash-nav-dropdown-toggle">Icons</a>
+
+                        <a href="#" class="dash-nav-dropdown-item">
+                            <i class="fas fa-boxes"></i>
+                            &nbsp;
+                            Stock Barang
+                        </a>
+
+                        <a href="#" class="dash-nav-dropdown-item">
+                            <i class="fas fa-user"></i>
+                            &nbsp;
+                            PIC
+                        </a>
+
+                        <div class="dash-nav-dropdown">
+                            <a href="#" class="dash-nav-dropdown-item dash-nav-dropdown-toggle">
+                                <i class="fas fa-clipboard-list"></i>
+                                &nbsp;
+                                Riwayat
+                            </a>
                             <div class="dash-nav-dropdown-menu">
-                                <a href="icons.html" class="dash-nav-dropdown-item">Solid Icons</a>
-                                <a href="icons.html#regular-icons" class="dash-nav-dropdown-item">Regular Icons</a>
-                                <a href="icons.html#brand-icons" class="dash-nav-dropdown-item">Brand Icons</a>
+                                <a href="#" class="dash-nav-dropdown-item">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                    &nbsp;
+                                    Masuk
+                                </a>
+                                <a href="#" class="dash-nav-dropdown-item">
+                                    <i class="fas fa-sign-out-alt"></i>
+                                    &nbsp;
+                                    Keluar
+                                </a>
                             </div>
                         </div>
-                        <a href="stats.html" class="dash-nav-dropdown-item">Stats</a>
-                        <a href="tables.html" class="dash-nav-dropdown-item">Tables</a>
-                        <a href="typography.html" class="dash-nav-dropdown-item">Typography</a>
-                        <a href="userinterface.html" class="dash-nav-dropdown-item">User Interface</a>
+
+                        <a href="#" class="dash-nav-dropdown-item">
+                            <i class="fas fa-user-cog"></i>
+                            &nbsp;
+                            Akun
+                        </a>
+                        
                     </div>
                 </div>
-                <div class="dash-nav-dropdown">
+
+                <div class="dash-nav-dropdown ">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
-                        <i class="fas fa-file"></i> Layouts </a>
+                        <i class="fas fa-cart-plus"></i>Pembelian</a>
+                    <div class="dash-nav-dropdown-menu">
+                        <a href="cards.html" class="dash-nav-dropdown-item">
+                            <i class="fas fa-clipboard-list"></i>
+                            &nbsp;
+                            Riwayat
+                        </a>
+                        <a href="forms.html" class="dash-nav-dropdown-item">
+                            <i class="fas fa-user"></i>
+                            &nbsp;
+                            PIC
+                        </a>
+                        <a href="stats.html" class="dash-nav-dropdown-item">
+                            <i class="fas fa-user-lock"></i>
+                            &nbsp;
+                            Akun
+                        </a>
+                    </div>
+                </div>
+
+                <!-- <div class="dash-nav-dropdown">
+                    <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
+                        <i class="fas fa-people-carry"></i>Produksi</a>
                     <div class="dash-nav-dropdown-menu">
                         <a href="blank.html" class="dash-nav-dropdown-item">Blank</a>
                         <a href="content.html" class="dash-nav-dropdown-item">Content</a>
                         <a href="login.html" class="dash-nav-dropdown-item">Log in</a>
                         <a href="signup.html" class="dash-nav-dropdown-item">Sign up</a>
                     </div>
-                </div>
+                </div> -->
+
                 <div class="dash-nav-dropdown">
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
-                        <i class="fas fa-info"></i> About </a>
+                        <i class="fas fa-user-lock"></i>User Akses</a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="https://github.com/HackerThemes/spur-template" target="_blank" class="dash-nav-dropdown-item">GitHub</a>
-                        <a href="http://hackerthemes.com" target="_blank" class="dash-nav-dropdown-item">HackerThemes</a>
+                        <a href="blank.html" class="dash-nav-dropdown-item">
+                            <i class="fas fa-users-cog"></i>
+                            &nbsp;
+                            List Akun
+                        </a>
                     </div>
                 </div>
+
+                <div class="dash-nav-dropdown">
+                    <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
+                        <i class="fas fa-question-circle"></i> Informasi </a>
+                    <div class="dash-nav-dropdown-menu">
+                        <a href="https://github.com/HackerThemes/spur-template" target="_blank" class="dash-nav-dropdown-item">
+                            <i class="fas fa-info-circle"></i>
+                            &nbsp;&nbsp;
+                            IMS v1.0
+                        </a>
+                    </div>
+                </div>
+
             </nav>
         </div>
+        <!-- Start Partition -->
         <div class="dash-app">
             <header class="dash-toolbar">
                 <a href="#!" class="menu-toggle">
@@ -124,47 +218,50 @@
             </header>
             <main class="dash-content">
                 <div class="container-fluid">
-                    <div class="row dash-row">
+                    <div class="row dash-row justify-content-center">
+
                         <div class="col-xl-4">
                             <div class="stats stats-primary">
-                                <h3 class="stats-title"> Sign ups </h3>
+                                <h3 class="stats-title">Total Barang </h3>
                                 <div class="stats-content">
                                     <div class="stats-icon">
-                                        <i class="fas fa-user"></i>
+                                        <i class="fas fa-boxes fa-2x"></i>
                                     </div>
                                     <div class="stats-data">
                                         <div class="stats-number">114</div>
-                                        <div class="stats-change">
+                                        <!-- <div class="stats-change">
                                             <span class="stats-percentage">+25%</span>
                                             <span class="stats-timeframe">from last month</span>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-xl-4">
                             <div class="stats stats-success ">
-                                <h3 class="stats-title"> Revenue </h3>
+                                <h3 class="stats-title">Total Vendor </h3>
                                 <div class="stats-content">
                                     <div class="stats-icon">
-                                        <i class="fas fa-cart-arrow-down"></i>
+                                        <i class="fas fa-user-friends fa-2x"></i>
                                     </div>
                                     <div class="stats-data">
                                         <div class="stats-number">$25,541</div>
-                                        <div class="stats-change">
+                                        <!-- <div class="stats-change">
                                             <span class="stats-percentage">+17.5%</span>
                                             <span class="stats-timeframe">from last month</span>
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
                             </div>
                         </div>
+
                         <div class="col-xl-4">
-                            <div class="stats stats-danger">
-                                <h3 class="stats-title"> Open tickets </h3>
+                            <div class="stats stats-info">
+                                <h3 class="stats-title">Total Customer </h3>
                                 <div class="stats-content">
                                     <div class="stats-icon">
-                                        <i class="fas fa-phone"></i>
+                                        <i class="fas fa-users fa-2x"></i>
                                     </div>
                                     <div class="stats-data">
                                         <div class="stats-number">5</div>
@@ -172,6 +269,49 @@
                                 </div>
                             </div>
                         </div>
+
+                        <div class="col-xl-4">
+                            <div class="stats stats-warning">
+                                <h3 class="stats-title">Total Pembelian </h3>
+                                <div class="stats-content">
+                                    <div class="stats-icon">
+                                        <i class="fas fa-cart-plus fa-2x"></i>
+                                    </div>
+                                    <div class="stats-data">
+                                        <div class="stats-number">5</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-4">
+                            <div class="stats stats-secondary">
+                                <h3 class="stats-title">Barang Masuk </h3>
+                                <div class="stats-content">
+                                    <div class="stats-icon">
+                                        <i class="fas fa-sign-in-alt fa-2x"></i>
+                                    </div>
+                                    <div class="stats-data">
+                                        <div class="stats-number">5</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-xl-4">
+                            <div class="stats stats-danger">
+                                <h3 class="stats-title">Barang Keluar </h3>
+                                <div class="stats-content">
+                                    <div class="stats-icon">
+                                        <i class="fas fa-sign-out-alt fa-2x"></i>
+                                    </div>
+                                    <div class="stats-data">
+                                        <div class="stats-number">5</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                     <div class="row">
                         <div class="col-xl-6">
@@ -267,11 +407,11 @@
                 </div>
             </main>
         </div>
+        <!-- End partition -->
     </div>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
-    <script src="../js/spur.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="../../asset/js/spur.js"></script>
 </body>
 
 </html>

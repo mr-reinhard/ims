@@ -4,9 +4,7 @@
         <option disabled selected>--- Pilih Tipe Login ---</option>
         <option value="MASTER">MASTER USER</option>
         <option value="PEMBELIAN">PEMBELIAN</option>
-        <option value="ENGINEERING">ENGINEERING</option>
         <option value="GUDANG">GUDANG</option>
-        <option value="PRODUKSI">PRODUKSI</option>
     </select>
     <div class="divider d-flex align-items-center my-4">
         <p class="text-center fw-bold mx-3 mb-0" id="id_login_sebagai_form_login">Login Sebagai...</p>

@@ -61,14 +61,13 @@
               if (masterUser == "MASTER") {
                 notifikasi_super_user();
                 call_master_login();
-              }else if(masterUser == "PEMBELIAN"){
+              }else if(masterUser == "PEMBELIAN")
+              {
                 document.getElementById("id_login_sebagai_form_login").innerHTML = "PEMBELIAN";
-              }else if(masterUser == "ENGINEERING"){
-                document.getElementById("id_login_sebagai_form_login").innerHTML = "ENGINEERING";
-              }else if(masterUser == "GUDANG"){
+              }
+              else if(masterUser == "GUDANG")
+              {
                 document.getElementById("id_login_sebagai_form_login").innerHTML = "GUDANG";
-              }else if(masterUser == "PRODUKSI"){
-                document.getElementById("id_login_sebagai_form_login").innerHTML = "PRODUKSI";
               }
             });
             // kasus pada form register yaitu register_form.php
@@ -76,12 +75,10 @@
               var registerUser = $(this).val();
               if (registerUser == "PEMBELIAN") {
                 document.getElementById("id_daftar_sebagai_form_register").innerHTML = "PEMBELIAN";
-              }else if(registerUser == "ENGINEERING"){
-                document.getElementById("id_daftar_sebagai_form_register").innerHTML = "ENGINEERING";
-              }else if(registerUser == "GUDANG"){
+              }
+              else if(registerUser == "GUDANG")
+              {
                 document.getElementById("id_daftar_sebagai_form_register").innerHTML = "GUDANG";
-              }else if(registerUser == "PRODUKSI"){
-                document.getElementById("id_daftar_sebagai_form_register").innerHTML = "PRODUKSI";
               }
             });
             // dari master login ke login utama

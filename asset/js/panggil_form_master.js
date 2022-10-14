@@ -118,4 +118,14 @@ function load_list_pic_pembelian(){
   });
 }
 
+function load_list_setting_akun(){
+  $.ajax({
+    url:'../master/akun/informasi_pengguna.php',
+    type:'GET',
+    success:function(data){
+      $('#main_content_master').html(data)
+    }
+  });
+}
+
 //========================================================================

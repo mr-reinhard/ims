@@ -20,6 +20,7 @@
               <th scope="col">Nama</th>
               <th scope="col">Dept.</th>
               <th scope="col">Jabatan</th>
+              <th scope="col">Status</th>
               <th>
                 <button class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Tambah PIC">
                     <i class="fa-solid fa-user-plus"></i>
@@ -35,6 +36,9 @@
       <td>AHMAD RIVAI</td>
       <td>Warehouse</td>
       <td>Picker</td>
+      <td>
+        <button class="btn btn-success" disabled>AKTIF</button>
+      </td>
       <td>
         <button class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Detail PIC">
             <i class="fa-solid fa-eye"></i>
@@ -56,6 +60,9 @@
       <td>Warehouse</td>
       <td>Administrator</td>
       <td>
+        <button class="btn btn-success" disabled>AKTIF</button>
+      </td>
+      <td>
         <button class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Detail PIC">
             <i class="fa-solid fa-eye"></i>
         </button>
@@ -75,6 +82,9 @@
       <td>SLAMET RIYADI</td>
       <td>Warehouse</td>
       <td>Checker</td>
+      <td>
+        <button class="btn btn-success" disabled>AKTIF</button>
+      </td>
       <td>
         <button class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Detail PIC">
             <i class="fa-solid fa-eye"></i>

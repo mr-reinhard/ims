@@ -1,0 +1,35 @@
+*** 3NF NORMALIZATION ***
+
+TBL CUSTOMER
+
+id_customer
+nama_customer
+
+=======================================
+
+TBL CUSTOMER DETAILS
+
+id_detail_customer
+id_customer
+alamat_customer
+telfon_customer
+email_customer
+fax_customer
+
+=======================================
+
+TBL VENDOR
+
+id_vendor
+nama_vendor
+
+=======================================
+
+TBL VENDOR DETAILS
+
+id_detail_vendor
+id_vendor
+alamat_vendor
+telfon_vendor
+email_vendor
+fax_vendor

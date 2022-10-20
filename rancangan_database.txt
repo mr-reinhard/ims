@@ -33,3 +33,122 @@ alamat_vendor
 telfon_vendor
 email_vendor
 fax_vendor
+
+=======================================
+
+TBL PIC
+
+id_pic
+nama_pic
+
+=======================================
+
+TBL PIC DETAILS
+
+id_detail_pic
+id_pic
+
+=======================================
+
+TBL BARANG
+
+id_barang
+nama_barang
+
+=======================================
+
+TBL TIPE
+
+id_tipe
+id_barang
+tipe
+
+=======================================
+
+TBL UKURAN
+
+id_tipe
+id_ukuran
+ukuran
+
+=======================================
+
+TBL MATERIAL
+
+id_material
+id_ukuran
+material
+
+=======================================
+
+TBL INVENTORY
+
+id_inventory
+id_barang
+id_tipe
+id_ukuran
+id_material
+qty
+
+=======================================
+
+TBL RAK
+
+id_rak => VC[2]
+nomor_rak
+
+=======================================
+
+TBL BARIS
+
+id_baris => VC[2]
+id_rak => VC[2]
+nomor_baris
+
+=======================================
+
+TBL KOLOM
+
+id_kolom => VC[2]
+id_baris => VC[2]
+nomor_kolom
+
+=======================================
+
+TBL BIN
+
+id_bin
+id_rak
+id_baris
+id_kolom
+
+=======================================
+
+TBL TRACKING
+
+id_bin
+id_inventory
+
+=======================================
+
+TBL BARANG KELUAR
+
+id_barang_keluar
+id_inventory
+tanggal_keluar
+id_pic
+id_customer
+qty
+catatan -> text
+
+=======================================
+
+TBL BARANG MASUK
+
+id_barang_masuk
+id_inventory
+tanggal_masuk
+id_pic
+id_vendor
+qty
+catatan -> text

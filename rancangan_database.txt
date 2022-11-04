@@ -1,16 +1,17 @@
 *** 3NF NORMALIZATION ***
+STANDAR 8 DIGIT UNTUK SETIAP ID
 
 TBL CUSTOMER
 
-id_customer
+id_customer => VC[8]
 nama_customer
 
 =======================================
 
 TBL CUSTOMER DETAILS
 
-id_detail_customer
-id_customer
+id_detail_customer => VC[8]
+id_customer => VC[8]
 alamat_customer
 telfon_customer
 email_customer
@@ -20,15 +21,15 @@ fax_customer
 
 TBL VENDOR
 
-id_vendor
+id_vendor => [8]
 nama_vendor
 
 =======================================
 
 TBL VENDOR DETAILS
 
-id_detail_vendor
-id_vendor
+id_detail_vendor => VC[8]
+id_vendor => VC [8]
 alamat_vendor
 telfon_vendor
 email_vendor
@@ -38,63 +39,63 @@ fax_vendor
 
 TBL PIC
 
-id_pic
+id_pic => VC [8]
 nama_pic
 
 =======================================
 
 TBL PIC DETAILS
 
-id_detail_pic
-id_pic
+id_detail_pic => VC [8]
+id_pic => VC [8]
 
 =======================================
 
 TBL BARANG
 
-id_barang
+id_barang => VC[8]
 nama_barang
 
 =======================================
 
 TBL TIPE
 
-id_tipe
-id_barang
+id_tipe => VC [8]
+id_barang => VC [8]
 tipe
 
 =======================================
 
 TBL UKURAN
 
-id_tipe
-id_ukuran
+id_tipe => VC [8]
+id_ukuran => VC [8]
 ukuran
 
 =======================================
 
 TBL MATERIAL
 
-id_material
-id_ukuran
+id_material => VC [8]
+id_ukuran => VC [8]
 material
 
 =======================================
 
 TBL INVENTORY
 
-id_inventory
-id_barang
-id_tipe
-id_ukuran
-id_material
+id_inventory => VC [8]
+id_barang => VC [8]
+id_tipe => VC [8]
+id_ukuran => VC [8]
+id_material => VC [8]
 qty
 
 =======================================
 
 TBL RAK
 
-id_rak => VC[2]
+id_rak => VC [8]
 nomor_rak
 
 =======================================
@@ -149,6 +150,16 @@ id_barang_masuk
 id_inventory
 tanggal_masuk
 id_pic
+qty
+catatan -> text
+
+=======================================
+
+TBL PEMBELIAN
+
+id_pembelian
+id_inventory
+tgl_pembelian
 id_vendor
 qty
 catatan -> text

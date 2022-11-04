@@ -49,6 +49,10 @@
                 load_list_barang_gudang();
             });
 
+            $("#id_navbar_menu_gudang").on("click","#id_list_pic_gudang_home_gudang",function(){
+                load_list_pic();
+            });
+
 
             
         });
@@ -95,7 +99,7 @@
                             Stock Barang
                         </a>
 
-                        <a href="#" class="dash-nav-dropdown-item" id="id_list_pic_gudang_home_master">
+                        <a href="#" class="dash-nav-dropdown-item" id="id_list_pic_gudang_home_gudang">
                             <i class="fas fa-user"></i>
                             &nbsp;
                             PIC

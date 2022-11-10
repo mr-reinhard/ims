@@ -35,25 +35,45 @@
             // Testing Area
             //==================================
 
-
+            
 
             //=================================
             // end testing area
             
-
+            // Tombol main menu
             $("#id_navbar_menu_gudang").on("click","#id_beranda_home_gudang",function(){
                 load_main_menu_gudang();
             });
 
+            // Tombol lost barang
             $("#id_navbar_menu_gudang").on("click","#id_list_barang_home_gudang",function(){
                 load_list_barang_gudang();
             });
 
+            // Tombol list PIC
             $("#id_navbar_menu_gudang").on("click","#id_list_pic_gudang_home_gudang",function(){
                 load_list_pic();
             });
 
+            // Tombol transfer barang
+            $("#id_navbar_menu_gudang").on("click","#id_transfer_barang_home_warehouse",function(){
+                load_list_transfer();
+            });
 
+            // Tombol informasi aplikasi
+            $("#id_navbar_menu_gudang").on("click","#id_info_home_warehouse",function(){
+                load_list_informasi();
+            });
+
+            // Tombol riwayat masuk
+            $("#id_navbar_menu_gudang").on("click","#id_riwayat_masuk_home_warehouse",function(){
+                load_list_riwayat_masuk();
+            });
+
+            // Tombol riwayat keluar
+            $("#id_navbar_menu_gudang").on("click","#id_riwayat_keluar_home_warehouse",function(){
+                load_list_riwayat_keluar();
+            });
             
         });
     </script>
@@ -113,7 +133,7 @@
                             </a>
 
                             <div class="dash-nav-dropdown-menu">
-                                <a href="#" class="dash-nav-dropdown-item" id="id_transfer_barang_home_master">
+                                <a href="#" class="dash-nav-dropdown-item" id="id_transfer_barang_home_warehouse">
                                     <i class="fas fa-sign-out-alt"></i>
                                     &nbsp;
                                     Keluar
@@ -128,12 +148,12 @@
                                 Riwayat
                             </a>
                             <div class="dash-nav-dropdown-menu">
-                                <a href="#" class="dash-nav-dropdown-item" id="id_riwayat_masuk_home_master">
+                                <a href="#" class="dash-nav-dropdown-item" id="id_riwayat_masuk_home_warehouse">
                                     <i class="fas fa-sign-in-alt"></i>
                                     &nbsp;
                                     Masuk
                                 </a>
-                                <a href="#" class="dash-nav-dropdown-item" id="id_riwayat_keluar_home_master">
+                                <a href="#" class="dash-nav-dropdown-item" id="id_riwayat_keluar_home_warehouse">
                                     <i class="fas fa-sign-out-alt"></i>
                                     &nbsp;
                                     Keluar
@@ -159,7 +179,7 @@
                     <a href="#!" class="dash-nav-item dash-nav-dropdown-toggle">
                         <i class="fas fa-question-circle"></i> Informasi </a>
                     <div class="dash-nav-dropdown-menu">
-                        <a href="#" class="dash-nav-dropdown-item" id="id_info_home_master">
+                        <a href="#" class="dash-nav-dropdown-item" id="id_info_home_warehouse">
                             <i class="fas fa-info-circle"></i>
                             &nbsp;&nbsp;
                             IMS v1.0
@@ -181,7 +201,8 @@
                 <form class="searchbox" action="#!">
                     <a href="#!" class="searchbox-toggle"> <i class="fas fa-arrow-left"></i> </a>
                     <button type="submit" class="searchbox-submit"> <i class="fas fa-search"></i> </button>
-                    <input type="text" class="searchbox-input" placeholder="type to search">
+                    <input type="text" class="searchbox-input col-sm-5" placeholder="type to search">
+                    <h3 class="font-weight-bold" id="id_judul_form"></h3>
                 </form>
 
                 <div class="tools">

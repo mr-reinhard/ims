@@ -29,13 +29,51 @@ function load_list_barang_gudang(){
   }
 
   function load_list_riwayat_masuk(){
-
+    $.ajax({
+      url:'barang/riwayat_masuk.php',
+      type:'GET',
+      success:function(data){
+        $('#main_content_gudang').html(data)
+      }
+    });
   }
 
   function load_list_riwayat_keluar(){
-
+    $.ajax({
+      url:'barang/riwayat_keluar.php',
+      type:'GET',
+      success:function(data){
+        $('#main_content_gudang').html(data)
+      }
+    });
   }
 
   function load_list_transfer(){
+    $.ajax({
+      url:'barang/transfer_barang.php',
+      type:'GET',
+      success:function(data){
+        $('#main_content_gudang').html(data)
+      }
+    });
+  }
 
+  function load_list_informasi(){
+    $.ajax({
+      url:'../master/informasi/info.html',
+      type:'GET',
+      success:function(data){
+        $('#main_content_gudang').html(data)
+      }
+    });
+  }
+
+  function load_list_header_transfer(){
+    $.ajax({
+      url:'',
+      type:'GET',
+      success:function(data){
+        $('').html(data)
+      }
+    });
   }

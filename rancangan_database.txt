@@ -3,163 +3,163 @@ STANDAR 8 DIGIT UNTUK SETIAP ID
 
 TBL CUSTOMER
 
-id_customer => VC[8]
-nama_customer
+id_customer => VC[8] [PRIMARY KEY]
+nama_customer => VC[50]
 
 =======================================
 
 TBL CUSTOMER DETAILS
 
-id_detail_customer => VC[8]
-id_customer => VC[8]
-alamat_customer
-telfon_customer
-email_customer
-fax_customer
+id_detail_customer => VC[8] [PRIMARY KEY]
+id_customer => VC[8] [PRIMARY KEY]
+alamat_customer => TEXT
+telfon_customer => CHAR[13]
+email_customer => VC[50]
+fax_customer => CHAR[13]
 
 =======================================
 
 TBL VENDOR
 
-id_vendor => [8]
-nama_vendor
+id_vendor => [8] [PRIMARY KEY]
+nama_vendor => VC[50]
 
 =======================================
 
 TBL VENDOR DETAILS
 
-id_detail_vendor => VC[8]
-id_vendor => VC [8]
-alamat_vendor
-telfon_vendor
-email_vendor
-fax_vendor
+id_detail_vendor => VC[8] [PRIMARY KEY]
+id_vendor => VC [8] [FOREIGN KEY]
+alamat_vendor => TEXT
+telfon_vendor => CHAR[13]
+email_vendor => VC[50]
+fax_vendor => CHAR[13]
 
 =======================================
 
 TBL PIC
 
-id_pic => VC [8]
-nama_pic
+id_pic => VC [8] [PRIMARY KEY]
+nama_pic => VC [50]
 
 =======================================
 
 TBL PIC DETAILS
 
-id_detail_pic => VC [8]
-id_pic => VC [8]
+id_detail_pic => VC [8] [PRIMARY KEY]
+id_pic => VC [8] [FOREIGN KEY]
 
 =======================================
 
 TBL BARANG
 
-id_barang => VC[8]
-nama_barang
+id_barang => VC[8] [PRIMARY KEY]
+nama_barang => VC[50]
 
 =======================================
 
 TBL TIPE
 
-id_tipe => VC [8]
-id_barang => VC [8]
-tipe
+id_tipe => VC [8] [PRIMARY KEY]
+id_barang => VC [8] [FOREIGN KEY]
+tipe => VC[50]
 
 =======================================
 
 TBL UKURAN
 
-id_tipe => VC [8]
-id_ukuran => VC [8]
-ukuran
+id_tipe => VC [8] [PRIMARY KEY]
+id_ukuran => VC [8] [FOREIGN KEY]
+ukuran => VC[50]
 
 =======================================
 
 TBL MATERIAL
 
-id_material => VC [8]
-id_ukuran => VC [8]
-material
+id_material => VC [8] [PRIMARY KEY]
+id_ukuran => VC [8] [FOREIGN KEY]
+material => VC[30]
 
 =======================================
 
 TBL INVENTORY
 
-id_inventory => VC [8]
-id_barang => VC [8]
-id_tipe => VC [8]
-id_ukuran => VC [8]
-id_material => VC [8]
-qty
+id_inventory => VC [8] [FOREIGN KEY]
+id_barang => VC [8] [FOREIGN KEY]
+id_tipe => VC [8] [FOREIGN KEY]
+id_ukuran => VC [8] [FOREIGN KEY]
+id_material => VC [8] [FOREIGN KEY]
+qty => CHAR[5]
 
 =======================================
 
 TBL RAK
 
-id_rak => VC [8]
-nomor_rak
+id_rak => VC [8] [FOREIGN KEY]
+nomor_rak => 
 
 =======================================
 
 TBL BARIS
 
-id_baris => VC[2]
-id_rak => VC[2]
-nomor_baris
+id_baris => VC[2] [PRIMARY KEY]
+id_rak => VC[2] [FOREIGN KEY]
+nomor_baris => ?
 
 =======================================
 
 TBL KOLOM
 
-id_kolom => VC[2]
-id_baris => VC[2]
-nomor_kolom
+id_kolom => VC[2] [PRIMARY KEY]
+id_baris => VC[2] [FOREIGN KEY]
+nomor_kolom => ?
 
 =======================================
 
 TBL BIN
 
-id_bin
-id_rak
-id_baris
-id_kolom
+id_bin => VC[8] [PRIMARY KEY]
+id_rak => VC[8] [FOREIGN KEY]
+id_baris => VC[8] [FOREIGN KEY]
+id_kolom => VC[8] [FOREIGN KEY]
 
 =======================================
 
 TBL TRACKING
 
-id_bin
-id_inventory
+id_bin => VC[8] [FOREIGN KEY]
+id_inventory => VC[8] [FOREIGN KEY]
 
 =======================================
 
 TBL BARANG KELUAR
 
-id_barang_keluar
-id_inventory
-tanggal_keluar
-id_pic
-id_customer
-qty
-catatan -> text
+id_barang_keluar => VC[8] [PRIMARY KEY]
+id_inventory => VC[8] [FOREIGN KEY]
+tanggal_keluar => DATE
+id_pic => VC[8] [FOREIGN KEY]
+id_customer => VC[8] [FOREIGN KEY]
+qty => CHAR[5]
+catatan => TEXT
 
 =======================================
 
 TBL BARANG MASUK
 
-id_barang_masuk
-id_inventory
-tanggal_masuk
-id_pic
-qty
-catatan -> text
+id_barang_masuk => VC[8] [PRIMARY KEY]
+id_inventory => VC[8] [FOREIGN KEY]
+tanggal_masuk => DATE
+id_pic => VC[8] [PRIMARY KEY]
+qty => CHAR[5]
+catatan -> TEXT
 
 =======================================
 
 TBL PEMBELIAN
 
-id_pembelian
-id_inventory
-tgl_pembelian
-id_vendor
-qty
-catatan -> text
+id_pembelian => VC[8] [PRIMARY KEY]
+id_inventory => VC[8] [FOREIGN KEY]
+tgl_pembelian => DATE
+id_vendor => VC[8] PRIMARY KEY
+qty => CHAR[5]
+catatan -> TEXT

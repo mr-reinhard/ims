@@ -1,12 +1,5 @@
-<table class="table table-hover">
-
-    <script>
-        $(document).ready(function(){
-            $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-            });
-        });
-    </script>
+<form class="form-control" method="POST">
+  <table class="table table-hover">
 
     <style>
       tr{
@@ -19,7 +12,7 @@
               <th scope="col">No</th>
               <th scope="col">Nama Customer</th>
               <th>
-                <button class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Tambah Vendor">
+                <button class="btn btn-success" data-toggle="tooltip" id="id_form_list_customer_master" data-placement="bottom" title="Tambah Vendor">
                     <i class="fa-solid fa-user-plus"></i>
                 </button>
               </th>
@@ -28,60 +21,42 @@
 
   <tbody>
 
-    <tr>
-      <th scope="row justify-content-center">1</th>
-      <td>PT. ULAR DERIK</td>
-      <td>
-        <button class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Detail Customer">
+    <?php 
+    include '../../session/koneksi.php';
+    $no = 1;
+    $query_data = "SELECT * FROM tbl_master_customer ORDER BY nama_customer ASC";
+    $exec_data = mysqli_query($koneksi, $query_data);
+    while ($hasil = mysqli_fetch_array($exec_data)) {
+      # code...
+      ?>
+      <tr>
+        <td>
+          <?php echo $no++; ?>
+        </td>
+
+        <td>
+          <?php echo $hasil['nama_customer']; ?>
+        </td>
+
+        <td>
+        <button type="button" id="id_button_detail_pelanggan_master" class="btn btn-primary" value="<?php echo $hasil['id_customer']; ?>" title="Detail Customer" name="button">
             <i class="fa-solid fa-eye"></i>
         </button>
 
-        <button class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Edit Customer">
+        <button type="button" id="id_button_edit_pelanggan_master" class="btn btn-warning" value="<?php echo $hasil['id_customer']; ?>" title="Edit Customer" name="button">
             <i class="fa-solid fa-user-pen"></i>
         </button>
 
-        <button class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="Hapus Customer">
+        <button type="button" id="id_button_hapus_pelanggan_master" class="btn btn-danger" value="<?php echo $hasil['id_customer']; ?>" title="Hapus Customer" name="button">
             <i class="fa-solid fa-user-xmark"></i>
         </button>
-      </td>
-    </tr>
-
-    <tr>
-      <th scope="row justify-content-center">2</th>
-      <td>PT. ULAR COBRA</td>
-      <td>
-        <button class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Detail Customer">
-            <i class="fa-solid fa-eye"></i>
-        </button>
-
-        <button class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Edit Customer">
-            <i class="fa-solid fa-user-pen"></i>
-        </button>
-
-        <button class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="Hapus Customer">
-            <i class="fa-solid fa-user-xmark"></i>
-        </button>
-      </td>
-    </tr>
-
-    <tr>
-      <th scope="row justify-content-center">1</th>
-      <td>PT. ULAR PHYTON</td>
-      <td>
-        <button class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Detail Customer">
-            <i class="fa-solid fa-eye"></i>
-        </button>
-
-        <button class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Edit Customer">
-            <i class="fa-solid fa-user-pen"></i>
-        </button>
-
-        <button class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="Hapus Customer">
-            <i class="fa-solid fa-user-xmark"></i>
-        </button>
-      </td>
-    </tr>
+        </td>
+      </tr>
+      <?php
+    }
+    ?>
 
   </tbody>
 
 </table>
+</form>

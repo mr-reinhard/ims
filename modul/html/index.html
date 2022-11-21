@@ -24,24 +24,13 @@
     <style>
 
     </style>
-</head>
-
-<body>
-
     <script type="text/javascript">
         $(document).ready(function(){
 
             // Testing Area
             //==================================
 
-            //load_main_menu_master();
-            //load_riwayat_masuk();
-            //karakter_huruf_tidak_diizinkan();
-            //swal2_info();
-            //swal2_tanpa_tombol();
-            //load_list_pembelian();
-            load_list_pic_gudang();
-
+            load_main_menu_master();
             //=================================
             // end testing area
             
@@ -103,11 +92,71 @@
                 load_list_setting_akun();
             });
 
+            $("#main_content_master").on("click","#id_form_list_customer_master",function(){
+                load_form_tambah_customer();
+            });
 
-            
+            $("#main_content_master").on("click","#id_btn_kembali_form_tambah_customer_master",function(){
+                load_list_customer();
+            });
+
+            // save customer
+            $("#main_content_master").on("submit","#id_form_tambah_customer_master",function(e){
+                e.preventDefault();
+                Swal.fire({
+                title: 'Data customer sudah benar?',
+                text: "Mohon di check ulang sebelum menyimpan data.",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Simpan'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                $.ajax({
+                    url:'../session/service.php?aksi=simpan_data_customer_master',
+                    type:'POST',
+                    data:$(this).serialize(),
+                    success:function(data){
+                        load_list_customer();
+                        data_customer_berhasil_disimpan();
+                    }
+                    });
+                }
+                })
+            });
+
+            // Hapus data customer
+            $("#main_content_master").on("click", "#id_button_hapus_pelanggan_master", function() {
+                var idCust = $(this).attr("value");
+                Swal.fire({
+                    title: 'Apakah yakin akan menghapus data?',
+                    text: "Mohon di check ulang sebelum menghapus data.",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Hapus'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                    $.ajax({
+                        url: '../session/service.php?aksi=hapus_data_customer_master',
+                        type: 'POST',
+                        data: {
+                            id_customer:idCust
+                        },
+                        success: function(data) {
+                            data_customer_berhasil_dihapus();
+                            load_list_customer();
+                        }
+                    });
+                    }
+                })
+            });
         });
     </script>
-
+</head>
+<body>
     <div class="dash">
         <div class="dash-nav dash-nav-dark">
             <header>

@@ -128,4 +128,14 @@ function load_list_setting_akun(){
   });
 }
 
+function load_form_tambah_customer(){
+  $.ajax({
+    url:'../master/partner/tambah_customer.php',
+    type:'GET',
+    success:function(data){
+      $('#main_content_master').html(data)
+    }
+  });
+}
+
 //========================================================================

@@ -1,7 +1,18 @@
 *** 3NF NORMALIZATION ***
 STANDAR 8 DIGIT UNTUK SETIAP ID
 
-TBL CUSTOMER
+Format penomoran pada rak barang
+R -> Rak
+B -> Baris
+K -> Kolom
+
+R000001 -> Rak Pertama
+B000001 -> Baris Pertama
+K000001 -> Kolom Pertama
+
+Hasilnya R000013-B000012-K000007 atau R000013B000012K000007
+
+TBL MASTER CUSTOMER
 
 id_customer => VC[8] [PRIMARY KEY]
 nama_customer => VC[50]
@@ -12,14 +23,14 @@ TBL CUSTOMER DETAILS
 
 id_detail_customer => VC[8] [PRIMARY KEY]
 id_customer => VC[8] [PRIMARY KEY]
-alamat_customer => TEXT
+alamat_customer => VC[150]
 telfon_customer => CHAR[13]
 email_customer => VC[50]
 fax_customer => CHAR[13]
 
 =======================================
 
-TBL VENDOR
+TBL MASTER VENDOR
 
 id_vendor => [8] [PRIMARY KEY]
 nama_vendor => VC[50]
@@ -37,48 +48,80 @@ fax_vendor => CHAR[13]
 
 =======================================
 
+TBL MASTER KARYAWAN
+
+id_karyawan => VC[8] [PRIMARY KEY]
+nama_karyawan => VC[50]
+
+=======================================
+
+TBL DETAIL KARYAWAN
+
+id_detail_karyawan => VC[8] [PRIMARY KEY]
+id_karyawan => VC[8] [FOREIGN KEY]
+alamat_karyawan => VC[150]
+telfon_karyawan => CHAR[13]
+email_karyawan => VC[50]
+
+=======================================
+
+TBL MASTER DEPARTEMEN
+
+id_departemen => CHAR[2] [PRIMARY KEY]
+nama_departemen => VARCHAR[30]
+
+=======================================
+
+TBL MASTER STATUS KARYAWAN
+
+id_status => CHAR[2] [PRIMARY KEY]
+nama_status => CHAR[5]
+
+=======================================
+
 TBL PIC
 
 id_pic => VC [8] [PRIMARY KEY]
-nama_pic => VC [50]
+id_karyawan => VC [8] [FOREIGN KEY]
 
 =======================================
 
-TBL PIC DETAILS
-
-id_detail_pic => VC [8] [PRIMARY KEY]
-id_pic => VC [8] [FOREIGN KEY]
+TBL REGISTER KARYAWAN
+id_karyawan => VC[8] [FOREIGN KEY]
+id_departemen => CHAR[2] [FOREIGN KEY]
+id_status => CHAR[2] [FOREIGN KEY]
+remarks => VC[50]
 
 =======================================
 
-TBL BARANG
+TBL MASTER BARANG
 
 id_barang => VC[8] [PRIMARY KEY]
 nama_barang => VC[50]
 
 =======================================
 
-TBL TIPE
+TBL MASTER TIPE
 
 id_tipe => VC [8] [PRIMARY KEY]
 id_barang => VC [8] [FOREIGN KEY]
-tipe => VC[50]
+nama_tipe => VC[50]
 
 =======================================
 
-TBL UKURAN
+TBL MASTER UKURAN
 
 id_tipe => VC [8] [PRIMARY KEY]
 id_ukuran => VC [8] [FOREIGN KEY]
-ukuran => VC[50]
+nama_ukuran => VC[50]
 
 =======================================
 
-TBL MATERIAL
+TBL MASTER MATERIAL
 
 id_material => VC [8] [PRIMARY KEY]
 id_ukuran => VC [8] [FOREIGN KEY]
-material => VC[30]
+nama_material => VC[30]
 
 =======================================
 
@@ -89,30 +132,30 @@ id_barang => VC [8] [FOREIGN KEY]
 id_tipe => VC [8] [FOREIGN KEY]
 id_ukuran => VC [8] [FOREIGN KEY]
 id_material => VC [8] [FOREIGN KEY]
-qty => CHAR[5]
+qty => CHAR[9]
 
 =======================================
 
-TBL RAK
+TBL MASTER RAK
 
-id_rak => VC [8] [FOREIGN KEY]
-nomor_rak => 
-
-=======================================
-
-TBL BARIS
-
-id_baris => VC[2] [PRIMARY KEY]
-id_rak => VC[2] [FOREIGN KEY]
-nomor_baris => ?
+id_rak => VC [5] [PRIMARY KEY]
+nomor_rak => VC[7]
 
 =======================================
 
-TBL KOLOM
+TBL MASTER BARIS
 
-id_kolom => VC[2] [PRIMARY KEY]
-id_baris => VC[2] [FOREIGN KEY]
-nomor_kolom => ?
+id_baris => VC[5] [PRIMARY KEY]
+id_rak => VC[5] [FOREIGN KEY]
+nomor_baris => VC[7]
+
+=======================================
+
+TBL MASTER KOLOM
+
+id_kolom => VC[5] [PRIMARY KEY]
+id_baris => VC[5] [FOREIGN KEY]
+nomor_kolom => VC[7]
 
 =======================================
 
@@ -149,9 +192,9 @@ TBL BARANG MASUK
 id_barang_masuk => VC[8] [PRIMARY KEY]
 id_inventory => VC[8] [FOREIGN KEY]
 tanggal_masuk => DATE
-id_pic => VC[8] [PRIMARY KEY]
-qty => CHAR[5]
-catatan -> TEXT
+id_pic => VC[8] [FOREIGN KEY]
+qty => CHAR[9]
+catatan => TEXT
 
 =======================================
 
@@ -161,5 +204,5 @@ id_pembelian => VC[8] [PRIMARY KEY]
 id_inventory => VC[8] [FOREIGN KEY]
 tgl_pembelian => DATE
 id_vendor => VC[8] PRIMARY KEY
-qty => CHAR[5]
+qty => CHAR[9]
 catatan -> TEXT

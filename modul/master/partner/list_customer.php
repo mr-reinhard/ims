@@ -1,4 +1,4 @@
-<form class="form-control" method="POST">
+
   <table class="table table-hover">
 
     <style>
@@ -59,4 +59,3 @@
   </tbody>
 
 </table>
-</form>

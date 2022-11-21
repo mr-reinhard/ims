@@ -16,7 +16,7 @@ switch ($_GET['aksi']) {
         $execute_query = mysqli_query($koneksi, $sql_check);
         if (mysqli_num_rows($execute_query) > 0) {
             # code...
-            echo '<script type="text/javascript">alert("Data sudah ada")</script>';
+            echo "....";
         }
         else{
             $execute_query = mysqli_query($koneksi, $sql_insert);

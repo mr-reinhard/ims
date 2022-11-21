@@ -2,7 +2,7 @@
 include '../../session/koneksi.php';
 ?>
 
-<form method="post" id="id_form_tambah_customer_master" autocomplete="off">
+<form method="POST" id="id_form_tambah_customer_master" autocomplete="off">
     <script>
         $('#id_input_nama_customer_form_tambah_customer_master').keypress(function(e){
             var regular_expression = new RegExp("^[0-9a-zA-Z\\s\\.\\-]+$");

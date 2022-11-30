@@ -1,3 +1,4 @@
+// Load main menu
 function load_main_menu_master(){
   $.ajax({
     url:'../master/beranda/home.php',
@@ -8,6 +9,7 @@ function load_main_menu_master(){
   });
 }
 
+// Load info menu
 function load_info_menu_master(){
   $.ajax({
     url:'../master/informasi/info.html',
@@ -18,6 +20,7 @@ function load_info_menu_master(){
   });
 }
 
+// Load fungsi list vendor
 function load_list_vendor(){
   $.ajax({
     url:'../master/partner/list_vendor.php',
@@ -28,6 +31,7 @@ function load_list_vendor(){
   });
 }
 
+// Load list customer
 function load_list_customer(){
   $.ajax({
     url:'../master/partner/list_customer.php',
@@ -131,6 +135,66 @@ function load_list_setting_akun(){
 function load_form_tambah_customer(){
   $.ajax({
     url:'../master/partner/tambah_customer.php',
+    type:'GET',
+    success:function(data){
+      $('#main_content_master').html(data)
+    }
+  });
+}
+
+function load_form_tambah_vendor(){
+  $.ajax({
+    url:'../master/partner/tambah_vendor.php',
+    type:'GET',
+    success:function(data){
+      $('#main_content_master').html(data)
+    }
+  });
+}
+
+function load_form_tambah_inventory(){
+  $.ajax({
+    url:'../master/gudang/tambah_inventory.php',
+    type:'GET',
+    success:function(data){
+      $('#main_content_master').html(data)
+    }
+  });
+}
+
+function load_form_tambah_nama_barang(){
+  $.ajax({
+    url:'../master/gudang/tambah_nama_barang.php',
+    type:'GET',
+    success:function(data){
+      $('#main_content_master').html(data)
+    }
+  });
+}
+
+function load_form_tambah_tipe_barang(){
+  $.ajax({
+    url:'../master/gudang/tambah_tipe_barang.php',
+    type:'GET',
+    success:function(data){
+      $('#main_content_master').html(data)
+    }
+  });
+}
+
+function load_form_tambah_karyawan(){
+  $.ajax({
+    url:'../master/karyawan/tambah_karyawan.php',
+    type:'GET',
+    success:function(data){
+      $('#main_content_master').html(data)
+    }
+  });
+}
+
+function load_list_karyawan(){
+  $.ajax({
+    url:'../master/karyawan/list_karyawan.php',
     type:'GET',
     success:function(data){
       $('#main_content_master').html(data)

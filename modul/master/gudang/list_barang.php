@@ -23,7 +23,7 @@
               <th scope="col">Mat.</th>
               <th scope="col">Qty</th>
               <th>
-                <button class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Tambah Barang">
+                <button class="btn btn-success" id="id_btn_tambah_inventory_master" data-toggle="tooltip" data-placement="bottom" title="Tambah Barang">
                     <i class="fas fa-cart-arrow-down"></i>
                 </button>
               </th>

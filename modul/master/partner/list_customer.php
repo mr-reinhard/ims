@@ -12,7 +12,7 @@
               <th scope="col">No</th>
               <th scope="col">Nama Customer</th>
               <th>
-                <button class="btn btn-success" data-toggle="tooltip" id="id_form_list_customer_master" data-placement="bottom" title="Tambah Vendor">
+                <button class="btn btn-success" id="id_form_list_customer_master" data-placement="bottom" title="Tambah Vendor">
                     <i class="fa-solid fa-user-plus"></i>
                 </button>
               </th>
@@ -41,6 +41,10 @@
         <td>
         <button type="button" id="id_button_detail_pelanggan_master" class="btn btn-primary" value="<?php echo $hasil['id_customer']; ?>" title="Detail Customer" name="button">
             <i class="fa-solid fa-eye"></i>
+        </button>
+
+        <button type="button" id="id_button_alamat_pelanggan_master" class="btn btn-secondary" value="<?php echo $hasil['id_customer']; ?>" title="Tambah Alamat Customer" name="button">
+            <i class="fas fa-address-card"></i>
         </button>
 
         <button type="button" id="id_button_edit_pelanggan_master" class="btn btn-warning" value="<?php echo $hasil['id_customer']; ?>" title="Edit Customer" name="button">

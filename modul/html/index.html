@@ -33,8 +33,7 @@
 
             // Testing Area
             //==================================
-
-            load_main_menu_master();
+//test_load();
             //=================================
             // end testing area
             
@@ -56,6 +55,11 @@
             // panggil form list customer
             $("#id_navbar_menu_master").on("click","#id_customer_list_home_master",function(){
                 load_list_customer();
+            });
+
+            // panggil form list karyawan
+            $("#id_navbar_menu_master").on("click","#id_karyawan_list_home_master",function(){
+                load_list_karyawan();
             });
 
             // panggil form list barang
@@ -96,12 +100,69 @@
                 load_list_setting_akun();
             });
 
+            // tombol untuk buka form tambah customer
             $("#main_content_master").on("click","#id_form_list_customer_master",function(){
                 load_form_tambah_customer();
             });
 
-            $("#main_content_master").on("click","#id_btn_kembali_form_tambah_customer_master",function(){
+            // tombol kembali di form tambah customer
+            $("#main_content_master").on("click","#id_tombol_kembali_form_tambah_customer_master",function(){
                 load_list_customer();
+            });
+            
+            // tombol kembali di form tambah alamat customer
+            $("#main_content_master").on("click","#id_button_kembali_form_tambah_alamat_customer_master",function(){
+                load_list_customer();
+            });
+
+            // panggil form tambah vendor
+            $("#main_content_master").on("click","#id_tombol_tambah_vendor_baru_master",function(){
+                load_form_tambah_vendor();
+            });
+
+            // tombol kembali di form tambah vendor
+            $("#main_content_master").on("click","#id_button_kembali_form_tambah_vendor_master",function(){
+                load_list_vendor();
+            });
+
+            // buka form tambah nama barang
+            $("#main_content_master").on("click","#id_btn_tambah_inventory_master",function(){
+                load_form_tambah_inventory();
+            });
+
+            // Tombol kembali di form tambah nama barang
+            $("#main_content_master").on("click","#id_button_kembali_form_tambah_nama_barang_master",function(){
+                load_list_barang();
+            });
+
+            // Tombol kembali di form tambah inventory
+            $("#main_content_master").on("click","#id_button_kembali_form_tambah_inventory_master",function(){
+                load_list_barang();
+            });
+
+            // buka form tambah nama barang baru
+            $("#main_content_master").on("click","#id_tambah_nama_barang_form_tambah_inventory_master",function(){
+                load_form_tambah_nama_barang();
+            });
+
+            // buka form tambah nama barang
+            $("#main_content_master").on("click","#id_tambah_nama_barang_form_tambah_inventory_master",function(){
+                load_form_tambah_nama_barang();
+            });
+
+            // buka form tambah tipe barang
+            $("#main_content_master").on("click","#id_tambah_tipe_barang_form_tambah_inventory_master",function(){
+                load_form_tambah_tipe_barang();
+            });
+
+            // Tombol kembali di form tambah karyawan
+            $("#main_content_master").on("click","#id_btn_kembali_form_tambah_karyawan_master",function(){
+                load_list_karyawan();
+            });
+
+            // tombol tambah karyawan baru
+            $("#main_content_master").on("click","#id_btn_tambah_karyawan_form_list_karyawan_master",function(){
+                load_form_tambah_karyawan();
             });
 
             // save customer
@@ -129,6 +190,162 @@
                 }
                 })
             });
+            
+            // simpan tambah alamat customer
+            $("#main_content_master").on("submit","#id_form_tambah_alamat_master",function(e){
+                e.preventDefault();
+                Swal.fire({
+                title: 'Alamat customer sudah benar?',
+                text: "Mohon di check ulang sebelum menyimpan data.",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Simpan'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                $.ajax({
+                    url:'../session/service.php?aksi=tambah_alamat_customer_master',
+                    type:'POST',
+                    data:$(this).serialize(),
+                    success:function(data){
+                        load_list_customer();
+                        alamat_customer_berhasil_ditambahkan();
+                    }
+                    });
+                }
+                })
+            });
+
+            // simpan data vendor
+            $("#main_content_master").on("submit","#id_form_tambah_vendor_master",function(e){
+                e.preventDefault();
+                Swal.fire({
+                title: 'Data vendor sudah benar?',
+                text: "Mohon di check ulang sebelum menyimpan data.",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Simpan'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                $.ajax({
+                    url:'../session/service.php?aksi=input_vendor_baru_master',
+                    type:'POST',
+                    data:$(this).serialize(),
+                    success:function(data){
+                        load_list_vendor();
+                        data_vendor_berhasil_disimpan();
+                    }
+                    });
+                }
+                })
+            });
+
+            // simpah tambah alamat vendor
+            $("#main_content_master").on("submit","#id_form_tambah_alamat_vendor_master",function(e){
+                e.preventDefault();
+                Swal.fire({
+                title: 'Alamat vendor sudah benar?',
+                text: "Mohon di check ulang sebelum menyimpan data.",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Simpan'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                $.ajax({
+                    url:'../session/service.php?aksi=simpan_alamat_vendor',
+                    type:'POST',
+                    data:$(this).serialize(),
+                    success:function(data){
+                        load_list_vendor();
+                        data_vendor_berhasil_disimpan();
+                    }
+                    });
+                }
+                })
+            });
+
+            // simpan nama barang
+            $("#main_content_master").on("submit","#id_form_simpan_nama_barang_master",function(e){
+                e.preventDefault();
+                Swal.fire({
+                title: 'Nama barang sudah benar?',
+                text: "Mohon di check ulang sebelum menyimpan data.",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Simpan'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                $.ajax({
+                    url:'../session/service.php?aksi=simpan_nama_barang',
+                    type:'POST',
+                    data:$(this).serialize(),
+                    success:function(data){
+                        load_list_vendor();
+                        namat_barang_berhasil_ditambahkan();
+                    }
+                    });
+                }
+                })
+            });
+
+            // simpan inventori
+            $("#main_content_master").on("submit","#id_form_tambah_inventory_master",function(e){
+                e.preventDefault();
+                Swal.fire({
+                title: 'Data inventori sudah benar?',
+                text: "Mohon di check ulang sebelum menyimpan data.",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Simpan'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                $.ajax({
+                    url:'../session/service.php?aksi=simpan_data_inventori',
+                    type:'POST',
+                    data:$(this).serialize(),
+                    success:function(data){
+                        load_list_barang();
+                        inventori_berhasil_ditambahkan();
+                    }
+                    });
+                }
+                })
+            });
+
+            // simpan data karyawan
+            $("#main_content_master").on("submit","#id_form_tambah_karyawan_master",function(e){
+                e.preventDefault();
+                Swal.fire({
+                title: 'Data karyawan sudah benar?',
+                text: "Mohon di check ulang sebelum menyimpan data.",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Simpan'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                $.ajax({
+                    url:'../session/service.php?aksi=simpan_data_karyawan',
+                    type:'POST',
+                    data:$(this).serialize(),
+                    success:function(data){
+                        load_list_karyawan();
+                        data_karyawan_berhasil_ditambahkan();
+                    }
+                    });
+                }
+                })
+            });
 
             // Hapus data customer
             $("#main_content_master").on("click", "#id_button_hapus_pelanggan_master", function() {
@@ -136,7 +353,7 @@
                 Swal.fire({
                     title: 'Apakah yakin akan menghapus data?',
                     text: "Mohon di check ulang sebelum menghapus data.",
-                    icon: 'warning',
+                    icon: 'question',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
@@ -157,6 +374,69 @@
                     }
                 })
             });
+
+            // Hapus data vendor
+            $("#main_content_master").on("click", "#id_button_hapus_pelanggan_master", function() {
+                var idvend = $(this).attr("value");
+                Swal.fire({
+                    title: 'Apakah yakin akan menghapus data?',
+                    text: "Mohon di check ulang sebelum menghapus data.",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Hapus'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                    $.ajax({
+                        url: '../session/service.php?aksi=hapus_data_vendor',
+                        type: 'POST',
+                        data: {
+                            id_vendor:idvend
+                        },
+                        success: function(data) {
+                            load_list_vendor();
+                            data_vendor_berhasil_dihapus();
+                        }
+                    });
+                    }
+                })
+            });
+
+            // bukan form tambah alamat customer dengan parameter id customer
+            $("#main_content_master").on("click","#id_button_alamat_pelanggan_master",function(){
+                var idCust = $(this).attr("value");
+                $.ajax({
+                url:"../master/partner/tambah_alamat_customer.php",
+                method:"GET",
+                data:{
+                    id_customer:idCust
+                },
+                dataType:"text",
+                success:function(data)
+                {
+                    $('#main_content_master').html(data);
+                }
+                });
+            });
+
+            // bukan form tambah alamat vendor dengan parameter id vendor
+            $("#main_content_master").on("click","#id_button_tambah_alamat_master",function(){
+                var idVend = $(this).attr("value");
+                $.ajax({
+                url:"../master/partner/tambah_alamat_vendor.php",
+                method:"GET",
+                data:{
+                    id_vendor:idVend
+                },
+                dataType:"text",
+                success:function(data)
+                {
+                    $('#main_content_master').html(data);
+                }
+                });
+            });
+            
         });
     </script>
 </head>
@@ -206,6 +486,12 @@
                             <i class="fas fa-users"></i>
                             &nbsp;
                             Vendor
+                        </a>
+
+                        <a href="#" class="dash-nav-dropdown-item" id="id_karyawan_list_home_master">
+                            <i class="fas fa-users"></i>
+                            &nbsp;
+                            Karyawan
                         </a>
                         
                     </div>

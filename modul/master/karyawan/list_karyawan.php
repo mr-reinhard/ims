@@ -19,32 +19,44 @@
     </thead>
 
     <tbody>
-        <tr>
-            <td>
-                1
-            </td>
+        <?php 
+        include '../../session/koneksi.php';
 
-            <td>
-                Buaya Darat
-            </td>
+        $no = 1;
+        $query_karyawan = "SELECT * FROM tbl_master_karyawan";
+        $exec_query = mysqli_query($koneksi, $query_karyawan);
+        while ($hasil = mysqli_fetch_array($exec_query)) {
+            # code...
+            ?>
+                <tr>
+                    <td>
+                        <?php echo $no++; ?>
+                    </td>
 
-            <td>
-                Kelautan
-            </td>
+                    <td>
+                        <?php echo $hasil['nama_karyawan']; ?>
+                    </td>
 
-            <td>
-                <button type="button" id="" class="btn btn-secondary" value="" title="Tambah Alamat Customer" name="button">
-                    <i class="fas fa-address-card"></i>
-                </button>
+                    <td>
+                        Kelautan
+                    </td>
 
-                <button type="button" id="" class="btn btn-warning" value="" title="Edit Customer" name="button">
-                    <i class="fa-solid fa-user-pen"></i>
-                </button>
+                    <td>
+                        <button type="button" id="" class="btn btn-secondary" value="" title="Tambah Alamat karyawan" name="button">
+                            <i class="fas fa-address-card"></i>
+                        </button>
 
-                <button type="button" id="" class="btn btn-danger" value="" title="Hapus Customer" name="button">
-                    <i class="fa-solid fa-user-xmark"></i>
-                </button>
-            </td>
-        </tr>
+                        <button type="button" id="" class="btn btn-warning" value="" title="Edit Karyawan" name="button">
+                            <i class="fa-solid fa-user-pen"></i>
+                        </button>
+
+                        <button type="button" id="" class="btn btn-danger" value="" title="Hapus Karyawan" name="button">
+                            <i class="fa-solid fa-user-xmark"></i>
+                        </button>
+                    </td>
+                </tr>
+            <?php
+        }
+        ?>
     </tbody>
 </table>

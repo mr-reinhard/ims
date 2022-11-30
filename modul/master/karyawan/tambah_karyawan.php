@@ -70,6 +70,7 @@ include '../../session/koneksi.php';
         <small id="emailKaryawan">Masukka email dengan menggunakan '@'</small>
     </div>
 
+    <!-- Tombol Hapus dan simpan -->
     <div class="form-group mt-3 ml-5 mr-5">
         <button type="reset" class="btn btn-outline-danger mr-5"><i class="fa-solid fa-xmark"></i> HAPUS</button>
         <button type="submit" class="btn btn-outline-success"><i class="fa-solid fa-floppy-disk"></i> SIMPAN</button>

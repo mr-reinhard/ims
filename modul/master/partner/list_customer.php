@@ -39,19 +39,19 @@
         </td>
 
         <td>
-        <button type="button" id="id_button_detail_pelanggan_master" class="btn btn-primary" value="<?php echo $hasil['id_customer']; ?>" title="Detail Customer" name="button">
+        <button type="button" id="id_button_detail_customer_master" class="btn btn-primary" value="<?php echo $hasil['id_customer']; ?>" title="Detail Customer" name="button">
             <i class="fa-solid fa-eye"></i>
         </button>
 
-        <button type="button" id="id_button_alamat_pelanggan_master" class="btn btn-secondary" value="<?php echo $hasil['id_customer']; ?>" title="Tambah Alamat Customer" name="button">
+        <button type="button" id="id_button_tambah_alamat_customer_master" class="btn btn-secondary" value="<?php echo $hasil['id_customer']; ?>" title="Tambah Alamat Customer" name="button">
             <i class="fas fa-address-card"></i>
         </button>
 
-        <button type="button" id="id_button_edit_pelanggan_master" class="btn btn-warning" value="<?php echo $hasil['id_customer']; ?>" title="Edit Customer" name="button">
+        <button type="button" id="id_button_edit_customer_master" class="btn btn-warning" value="<?php echo $hasil['id_customer']; ?>" title="Edit Customer" name="button">
             <i class="fa-solid fa-user-pen"></i>
         </button>
 
-        <button type="button" id="id_button_hapus_pelanggan_master" class="btn btn-danger" value="<?php echo $hasil['id_customer']; ?>" title="Hapus Customer" name="button">
+        <button type="button" id="id_button_hapus_customer_master" class="btn btn-danger" value="<?php echo $hasil['id_customer']; ?>" title="Hapus Customer" name="button">
             <i class="fa-solid fa-user-xmark"></i>
         </button>
         </td>

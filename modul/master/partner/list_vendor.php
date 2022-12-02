@@ -41,15 +41,15 @@
                   <i class="fa-solid fa-eye"></i>
                 </button>
                 
-                <button type="button" id="id_button_tambah_alamat_master" class="btn btn-secondary" value="<?php echo $hasil['id_vendor']; ?>" title="Tambah Alamat" name="button">
+                <button type="button" id="id_button_tambah_alamat_vendor_master" class="btn btn-secondary" value="<?php echo $hasil['id_vendor']; ?>" title="Tambah Alamat" name="button">
                   <i class="fas fa-address-card"></i>
                 </button>
 
-                <button type="button" id="id_button_edit_pelanggan_master" class="btn btn-warning" value="<?php echo $hasil['id_vendor']; ?>" title="Edit Vendor" name="button">
+                <button type="button" id="id_button_edit_vendor_master" class="btn btn-warning" value="<?php echo $hasil['id_vendor']; ?>" title="Edit Vendor" name="button">
                   <i class="fa-solid fa-user-pen"></i>
                 </button>
 
-                <button type="button" id="id_button_hapus_pelanggan_master" class="btn btn-danger" value="<?php echo $hasil['id_vendor']; ?>" title="Hapus Vendor" name="button">
+                <button type="button" id="id_button_hapus_vendor_master" class="btn btn-danger" value="<?php echo $hasil['id_vendor']; ?>" title="Hapus Vendor" name="button">
                   <i class="fa-solid fa-user-xmark"></i>
                 </button>
               </td>

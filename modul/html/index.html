@@ -33,7 +33,7 @@
 
             // Testing Area
             //==================================
-//test_load();
+            
             //=================================
             // end testing area
             
@@ -125,14 +125,29 @@
                 load_list_vendor();
             });
 
-            // buka form tambah nama barang
+            // buka form tambah inventory
             $("#main_content_master").on("click","#id_btn_tambah_inventory_master",function(){
                 load_form_tambah_inventory();
             });
 
             // Tombol kembali di form tambah nama barang
-            $("#main_content_master").on("click","#id_button_kembali_form_tambah_nama_barang_master",function(){
-                load_list_barang();
+            $("#main_content_master").on("click","#id_btn_kembali_form_tambah_nama_barang_master",function(){
+                load_form_tambah_inventory();
+            });
+
+            // Tombol kembali di form tambah tipe barang
+            $("#main_content_master").on("click","#id_btn_kembali_form_tambah_tipe_barang_master",function(){
+                load_form_tambah_inventory();
+            });
+
+            // Tombol kembali di form ukuran barang
+            $("#main_content_master").on("click","#id_btn_kembali_form_tambah_ukuran_barang_master",function(){
+                load_form_tambah_inventory();
+            });
+
+            // Tombol kembali di form material barang
+            $("#main_content_master").on("click","#id_btn_kembali_form_tambah_material_barang_master",function(){
+                load_form_tambah_inventory();
             });
 
             // Tombol kembali di form tambah inventory
@@ -145,14 +160,19 @@
                 load_form_tambah_nama_barang();
             });
 
-            // buka form tambah nama barang
-            $("#main_content_master").on("click","#id_tambah_nama_barang_form_tambah_inventory_master",function(){
-                load_form_tambah_nama_barang();
-            });
-
             // buka form tambah tipe barang
             $("#main_content_master").on("click","#id_tambah_tipe_barang_form_tambah_inventory_master",function(){
                 load_form_tambah_tipe_barang();
+            });
+
+            // buka form tambah ukuran barang
+            $("#main_content_master").on("click","#id_tambah_ukuran_barang_form_tambah_inventory_master",function(){
+                load_form_tambah_ukuran_barang();
+            });
+
+            // Buka form tambah material barang
+            $("#main_content_master").on("click","#id_tambah_material_barang_form_tambah_inventory_master",function(){
+                load_form_tambah_material_barang();
             });
 
             // Tombol kembali di form tambah karyawan
@@ -348,7 +368,7 @@
             });
 
             // Hapus data customer
-            $("#main_content_master").on("click", "#id_button_hapus_pelanggan_master", function() {
+            $("#main_content_master").on("click", "#id_button_hapus_customer_master", function() {
                 var idCust = $(this).attr("value");
                 Swal.fire({
                     title: 'Apakah yakin akan menghapus data?',
@@ -376,7 +396,7 @@
             });
 
             // Hapus data vendor
-            $("#main_content_master").on("click", "#id_button_hapus_pelanggan_master", function() {
+            $("#main_content_master").on("click", "#id_button_hapus_vendor_master", function() {
                 var idvend = $(this).attr("value");
                 Swal.fire({
                     title: 'Apakah yakin akan menghapus data?',
@@ -404,7 +424,7 @@
             });
 
             // bukan form tambah alamat customer dengan parameter id customer
-            $("#main_content_master").on("click","#id_button_alamat_pelanggan_master",function(){
+            $("#main_content_master").on("click","#id_button_tambah_alamat_customer_master",function(){
                 var idCust = $(this).attr("value");
                 $.ajax({
                 url:"../master/partner/tambah_alamat_customer.php",
@@ -421,7 +441,7 @@
             });
 
             // bukan form tambah alamat vendor dengan parameter id vendor
-            $("#main_content_master").on("click","#id_button_tambah_alamat_master",function(){
+            $("#main_content_master").on("click","#id_button_tambah_alamat_vendor_master",function(){
                 var idVend = $(this).attr("value");
                 $.ajax({
                 url:"../master/partner/tambah_alamat_vendor.php",

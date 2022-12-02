@@ -15,9 +15,9 @@ include '../../session/koneksi.php';
         });
     </script>
 
-    <!-- Isi nama barang -->
+    <!-- Tombol kembali ke form tambah inventory -->
     <div class="form-group">
-        <button type="button" class="btn btn-outline-primary mt-2 ml-5" id="id_button_kembali_form_tambah_nama_barang_master">
+        <button type="button" class="btn btn-outline-primary mt-2 ml-5" id="id_btn_kembali_form_tambah_nama_barang_master">
             <i class="fa-solid fa-circle-chevron-left"></i> KEMBALI
         </button>
     </div>

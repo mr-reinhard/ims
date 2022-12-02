@@ -8,7 +8,7 @@ include '../../session/koneksi.php';
     </script>
 
     <div class="form-group mt-2 ml-5">
-        <button class="btn btn-outline-primary">
+        <button class="btn btn-outline-primary" id="id_btn_kembali_form_tambah_tipe_barang_master">
             <i class="fa-solid fa-circle-chevron-left"></i> KEMBALI
         </button>
     </div>

@@ -173,6 +173,52 @@ switch ($_GET['aksi']) {
                 }
                 break;
 
+        case 'simpan_tipe_barang':
+            # code...
+                $unique_idTipe = '0123456789ABCDEFGHIJKLMNOPQRSTUVWQYZ';
+                $output_idTipe = substr(str_shuffle($unique_idTipe),0,8);
+
+                $idBarang = $_POST[''];
+                $namaTipe = $_POST[''];
+
+                $checkTipe = "SELECT * FROM tbl_master_tipe WHERE nama_tipe LIKE '%".$namaTipe."%'";
+                $insertTipe = "INSERT INTO tbl_master_tipe(id_tipe,
+                id_barang,
+                nama_tipe)VALUES('$output_idTipe','$idBarang','$namaTipe')";
+                $run_checkTipe = mysqli_query($koneksi, $checkTipe);
+
+                if (mysqli_num_rows($run_checkTipe) > 0) {
+                    # code...
+                    echo "....";
+                }
+                else {
+                    # code...
+                    $insert_dataTipe = mysqli_query($koneksi,$insertTipe);
+                }
+                break;
+
+        case 'simpan_ukuran_barang':
+            # code...
+                $unique_idUkuran = '0123456789ABCDEFGHIJKLMNOPQRSTUVWQYZ';
+                $output_idUkuran = substr(str_shuffle($unique_idUkuran),0,8);
+
+                $idTipe = $_POST[''];
+                $namaUkuran = $_POST[''];
+
+                $checkUkuran = "SELECT * FROM tbl_master_ukuran WHERE nama_ukuran LIKE '%".$namaUkuran."%'";
+                $insertUkuran = "INSERT INTO(id_ukuran,id_tipe,nama_ukuran)VALUES('$output_idUkuran','$idTipe','$namaUkuran')";
+                $run_checkUkuran = mysqli_query($koneksi,$checkUkuran);
+
+                if (mysqli_num_rows($run_checkUkuran) > 0) {
+                    # code...
+                    echo "...";
+                }
+                else {
+                    # code...
+                    $run_saveUkuran = mysqli_query($koneksi,$insertUkuran);
+                }
+                break;
+
         case 'simpan_data_inventori':
             # code...
                 $unique_id_inventory = '0123456789ABCDEFGHIJKLMNOPQRSTUVWQYZ';

@@ -182,6 +182,26 @@ function load_form_tambah_tipe_barang(){
   });
 }
 
+function load_form_tambah_ukuran_barang(){
+  $.ajax({
+    url:'../master/gudang/tambah_ukuran_barang.php',
+    type:'GET',
+    success:function(data){
+      $('#main_content_master').html(data)
+    }
+  });
+}
+
+function load_form_tambah_material_barang(){
+  $.ajax({
+    url:'../master/gudang/tambah_material_barang.php',
+    type:'GET',
+    success:function(data){
+      $('#main_content_master').html(data)
+    }
+  });
+}
+
 function load_form_tambah_karyawan(){
   $.ajax({
     url:'../master/karyawan/tambah_karyawan.php',

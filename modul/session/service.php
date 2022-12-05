@@ -46,6 +46,16 @@ switch ($_GET['aksi']) {
         $sql_exec2 = mysqli_query($koneksi, $sql_query2);
         break;
 
+    case 'hapus_data_karyawan':
+        # code...
+        $idKaryawan = $_POST[''];
+        $query_deleteMasterKaryawan = "DELETE FROM tbl_master_karyawan WHERE id_karyawan LIKE '%".$idKaryawan."%'";
+        $query_deleteDetailskaryawan = "DELETE FROM tbl_detail_karyawan WHERE id_karyawan LIKE '%".$idKaryawan."%'";
+
+        $run_sqlHapus1 = mysqli_query($koneksi,$query_deleteMasterKaryawan);
+        $run_sqlHapus2 = mysqli_query($koneksi,$query_deleteDetailskaryawan);
+        break;
+
     case 'tambah_alamat_customer_master':
         # code...
         $unique_id_customer_details = '0123456789ABCDEFGHIJKLMNOPQRSTUVWQYZ';
@@ -216,6 +226,32 @@ switch ($_GET['aksi']) {
                 else {
                     # code...
                     $run_saveUkuran = mysqli_query($koneksi,$insertUkuran);
+                }
+                break;
+
+        case 'simpan_material_barang':
+            # code...
+                $unique_idMaterial = '0123456789ABCDEFGHIJKLMNOPQRSTUVWQYZ';
+                $output_idMaterial = substr(str_shuffle($unique_idMaterial),0,8);
+
+                $idUkuran = $_POST[''];
+                $namaMaterial = $_POST[''];
+
+                $sql_checking = "SELECT * FROM tbl_master_material WHERE nama_material LIKE '%".$namaMaterial."%'";
+                $sql_InsertData = "INSERT INTO tbl_master_material(id_material,
+                id_ukuran,
+                nama_material)VALUES('$output_idMaterial',
+                '$idUkuran','$namaMaterial')";
+
+                $run_checkingData = mysqli_query($koneksi,$sql_checking);
+
+                if (mysqli_num_rows($run_checkingData) > 0) {
+                    # code...
+                    echo "...";
+                }
+                else {
+                    # code...
+                    $insert_DataMaterial = mysqli_query($koneksi,$sql_InsertData);
                 }
                 break;
 

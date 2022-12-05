@@ -42,15 +42,15 @@
                     </td>
 
                     <td>
-                        <button type="button" id="" class="btn btn-secondary" value="" title="Tambah Alamat karyawan" name="button">
+                        <button type="button" id="" class="btn btn-secondary" value="<?php echo $hasil['id_karyawan']; ?>" title="Tambah Alamat karyawan" name="button">
                             <i class="fas fa-address-card"></i>
                         </button>
 
-                        <button type="button" id="" class="btn btn-warning" value="" title="Edit Karyawan" name="button">
+                        <button type="button" id="" class="btn btn-warning" value="<?php echo $hasil['id_karyawan']; ?>" title="Edit Karyawan" name="button">
                             <i class="fa-solid fa-user-pen"></i>
                         </button>
 
-                        <button type="button" id="" class="btn btn-danger" value="" title="Hapus Karyawan" name="button">
+                        <button type="button" id="" class="btn btn-danger" value="<?php echo $hasil['id_karyawan']; ?>" title="Hapus Karyawan" name="button">
                             <i class="fa-solid fa-user-xmark"></i>
                         </button>
                     </td>

@@ -423,6 +423,33 @@
                 })
             });
 
+            // Hapus data karyawan
+            $("#main_content_master").on("click", "#", function() {
+                var idKaryawan = $(this).attr("value");
+                Swal.fire({
+                    title: 'Apakah yakin akan menghapus data?',
+                    text: "Mohon di check ulang sebelum menghapus data.",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Hapus'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                    $.ajax({
+                        url: '../session/service.php?aksi=hapus_data_karyawan',
+                        type: 'POST',
+                        data: {
+                            id_karyawan:idKaryawan
+                        },
+                        success: function(data) {
+                            // Trigger here
+                        }
+                    });
+                    }
+                })
+            });
+
             // bukan form tambah alamat customer dengan parameter id customer
             $("#main_content_master").on("click","#id_button_tambah_alamat_customer_master",function(){
                 var idCust = $(this).attr("value");
@@ -484,6 +511,7 @@
                 <a href="#">
                     <hr class="bg-primary">
                 </a>
+                
             </div>
             <nav class="dash-nav-list" id="id_navbar_menu_master">
 

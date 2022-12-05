@@ -63,7 +63,7 @@ tblvendordetail.alamat_vendor,
 tblvendordetail.telfon_vendor,
 tblvendordetail.email_vendor,
 tblvendordetail.fax_vendor
-FROM tbl_vendor tblvendor
+FROM tbl_master_vendor tblvendor
 INNER JOIN tbl_vendor_details tblvendordetail ON
 tblvendordetail.id_vendor = tblvendor.id_vendor
 
@@ -84,6 +84,7 @@ PRIMARY KEY(`id_detail_karyawan`)) ENGINE = InnoDB;
 
 -- CREATE VIEW vw_karyawan
 CREATE VIEW vw_karyawan AS SELECT
+tbkaryawan.id_karyawan,
 tbkaryawan.nama_karyawan,
 tbkaryawandetail.alamat_karyawan,
 tbkaryawandetail.telfon_karyawan,

@@ -319,3 +319,26 @@ function alamat_karyawan_berhasil_ditambahkan(){
     "hideMethod": "fadeOut"
     }
 }
+
+function karyawan_berhasil_dihapus(){
+    Command: toastr["info"]("Karyawan berhasil dihapus", "Karyawan terhapus")
+
+    toastr.options =
+    {
+    "closeButton": false,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "1800",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+    }
+}

@@ -185,6 +185,16 @@
                 load_form_tambah_karyawan();
             });
 
+            // tombol tambah departemen di form tambah karyawan
+            $("#main_content_master").on("click","#id_tombol_tambah_departemen_form_tambah_karyawan_master",function(){
+                load_form_tambah_departemen();
+            });
+
+            // Tombol kembaii di form tambah departemen
+            $("#main_content_master").on("click","#id_tombol_kembali_form_tambah_departemen_master",function(){
+                load_form_tambah_karyawan();
+            });
+
             // save customer
             $("#main_content_master").on("submit","#id_form_tambah_customer_master",function(e){
                 e.preventDefault();
@@ -424,7 +434,7 @@
             });
 
             // Hapus data karyawan
-            $("#main_content_master").on("click", "#", function() {
+            $("#main_content_master").on("click", "#id_btn_hapus_karyawan_form_list_karyawan_master", function() {
                 var idKaryawan = $(this).attr("value");
                 Swal.fire({
                     title: 'Apakah yakin akan menghapus data?',
@@ -444,6 +454,8 @@
                         },
                         success: function(data) {
                             // Trigger here
+                            load_list_karyawan();
+                            karyawan_berhasil_dihapus();
                         }
                     });
                     }
@@ -560,6 +572,12 @@
                             <i class="fas fa-user"></i>
                             &nbsp;
                             PIC
+                        </a>
+
+                        <a href="#" class="dash-nav-dropdown-item" id="">
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                            &nbsp;
+                            Tracking
                         </a>
 
                         <div class="dash-nav-dropdown">

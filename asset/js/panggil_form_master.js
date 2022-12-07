@@ -222,4 +222,24 @@ function load_list_karyawan(){
   });
 }
 
+function load_form_list_departemen(){
+  $.ajax({
+    url:'../master/departemen/list_departemen.php',
+    type:'GET',
+    success:function(data){
+      $('#main_content_master').html(data)
+    }
+  });
+}
+
+function load_form_tambah_departemen(){
+  $.ajax({
+    url:'../master/departemen/tambah_departemen.php',
+    type:'GET',
+    success:function(data){
+      $('#main_content_master').html(data)
+    }
+  });
+}
+
 //========================================================================

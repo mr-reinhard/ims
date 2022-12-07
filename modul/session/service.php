@@ -48,7 +48,7 @@ switch ($_GET['aksi']) {
 
     case 'hapus_data_karyawan':
         # code...
-        $idKaryawan = $_POST[''];
+        $idKaryawan = $_POST['id_karyawan'];
         $query_deleteMasterKaryawan = "DELETE FROM tbl_master_karyawan WHERE id_karyawan LIKE '%".$idKaryawan."%'";
         $query_deleteDetailskaryawan = "DELETE FROM tbl_detail_karyawan WHERE id_karyawan LIKE '%".$idKaryawan."%'";
 

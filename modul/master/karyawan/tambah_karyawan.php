@@ -56,6 +56,19 @@ include '../../session/koneksi.php';
         <small id="alamatKaryawan">Tulis alamat dengan lengkap</small>
     </div>
 
+    <!-- Departemen karyawan -->
+    <div class="form-group mt-3 ml-5 mr-5">
+        <label for="id_pilih_departemen_form_tambah_karyawan_master">Pilih departemen</label>
+        <select name="" id="id_pilih_departemen_form_tambah_karyawan_master" class="form-control w-50" required>
+            <option value="" disabled selected>-- Pilih departemen --</option>
+            <option value="">Purchasing</option>
+            <option value="">Warehouse</option>
+        </select>
+        <button class="btn btn-success" id="id_tombol_tambah_departemen_form_tambah_karyawan_master" title="Tambah departemen">
+            <i class="fa-solid fa-circle-plus"></i>
+        </button>
+    </div>
+
     <!-- Telfon karyawan -->
     <div class="form-group mt-3 ml-5 mr-5">
         <label for="id_telfon_karyawan_form_tambah_karyawan_master">Telfon karyawan</label>

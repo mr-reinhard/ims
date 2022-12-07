@@ -23,7 +23,7 @@
         include '../../session/koneksi.php';
 
         $no = 1;
-        $query_karyawan = "SELECT * FROM tbl_master_karyawan";
+        $query_karyawan = "SELECT * FROM vw_karyawan";
         $exec_query = mysqli_query($koneksi, $query_karyawan);
         while ($hasil = mysqli_fetch_array($exec_query)) {
             # code...
@@ -38,7 +38,7 @@
                     </td>
 
                     <td>
-                        Kelautan
+                        <?php echo $hasil['alamat_karyawan']; ?>
                     </td>
 
                     <td>
@@ -50,7 +50,7 @@
                             <i class="fa-solid fa-user-pen"></i>
                         </button>
 
-                        <button type="button" id="" class="btn btn-danger" value="<?php echo $hasil['id_karyawan']; ?>" title="Hapus Karyawan" name="button">
+                        <button type="button" id="id_btn_hapus_karyawan_form_list_karyawan_master" class="btn btn-danger" value="<?php echo $hasil['id_karyawan']; ?>" title="Hapus Karyawan" name="button">
                             <i class="fa-solid fa-user-xmark"></i>
                         </button>
                     </td>

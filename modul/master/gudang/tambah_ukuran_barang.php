@@ -18,8 +18,15 @@ include '../../session/koneksi.php';
     <!-- Pilih nama barang -->
     <div class="form-group mt-3 ml-5 mr-5">
         <label for="">Nama barang</label>
-        <select name="" id="" class="form-control w-50" autofocus required>
-            <option value="">Hexabolt</option>
+        <select name="name_pilih_nama_barang_form_tambah_ukuran_barang_master" id="id_pilih_nama_barang_form_tambah_ukuran_master" class="form-control w-50" autofocus required>
+            <?php 
+            $queryNamaBarang = "SELECT * FROM tbl_master_barang ORDER BY nama_barang ASC";
+            $execQuery = mysqli_query($koneksi,$queryNamaBarang);
+            while ($hasilData = mysqli_fetch_array($execQuery)) {
+                # code...
+                echo "<option value='".$hasilData['id_barang']."'>".$hasilData['nama_barang']."</option>";
+            }
+            ?>
         </select>
         <small id="">Pilih nama barang</small>
     </div>
@@ -27,17 +34,17 @@ include '../../session/koneksi.php';
     <!-- Pilih tipe barang -->
     <div class="form-group mt-3 ml-5 mr-5">
         <label for="">Tipe barang</label>
-        <select name="" id="" class="form-control w-50" required>
-            <option value="">M8</option>
+        <select name="name_pilih_tipe_barang_form_tambah_ukuran_barang_master" id="id_pilih_tipe_barang_form_tambah_ukuran_master" class="form-control w-50" required>
+            <option disabled selected>Pilih Tipe barang</option>
         </select>
         <small id="">Pilih tipe barang</small>
     </div>
 
     <!-- Pilih ukuran barang -->
     <div class="form-group mt-3 ml-5 mr-5">
-        <label for="">Ukuran barang</label>
-        <input type="text" id="" class="form-control w-50" required>
-        <small id="">Pilih ukuran barang</small>
+        <label for="id_input_ukuran_barang_form_tambah_ukuran_barang_master">Ukuran barang</label>
+        <input type="text" name="name_tambah_ukuran_barang_form_tambah_ukuran_barang_master" id="id_input_ukuran_barang_form_tambah_ukuran_barang_master" aria-describedby="ukuranBarang" class="form-control w-50" required>
+        <small id="ukuranBarang">Pilih ukuran barang</small>
     </div>
 
     <!-- Tombol hapus dan simpan -->

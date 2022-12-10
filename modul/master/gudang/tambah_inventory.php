@@ -25,7 +25,14 @@ include '../../session/koneksi.php';
     <div class="form-group mt-3 ml-5 mr-5">
         <label for="id_pilih_nama_barang_form_tambah_inventory_master">Nama Barang</label>
         <select name="name_pilih_nama_barang_form_tambah_inventory_master" class="form-control w-50" id="id_pilih_nama_barang_form_tambah_inventory_master" aria-describedby="pilihBarang" autofocus>
-            <option value="AAAAAAA1">Hex Bolt</option>
+            <?php 
+            $GetNamaBarang = "SELECT * FROM tbl_master_barang ORDER BY nama_barang ASC";
+            $ExecNamaBarang = mysqli_query($koneksi,$GetNamaBarang);
+            while ($hasilData = mysqli_fetch_array($ExecNamaBarang)) {
+                # code...
+                echo "<option value='".$hasilData['id_barang']."'>".$hasilData['nama_barang']."</option>";
+            }
+            ?>
         </select>
         <button class="btn btn-success" id="id_tambah_nama_barang_form_tambah_inventory_master" title="Tambah nama barang">
             <i class="fa-solid fa-circle-plus"></i>
@@ -36,7 +43,7 @@ include '../../session/koneksi.php';
     <div class="form-group mt-3 ml-5 mr-5">
         <label for="id_pilih_nama_barang_form_tambah_inventory_master">Tipe Barang</label>
         <select name="name_pilih_tipe_barang_form_tambah_inventory_master" class="form-control w-50" id="id_pilih_tipe_barang_form_tambah_inventory_master" aria-describedby="pilihBarang">
-            <option value="AAAAAAA2">M8</option>
+            <!-- List Tipe -->
         </select>
         <button class="btn btn-success" id="id_tambah_tipe_barang_form_tambah_inventory_master" title="Tambah tipe barang">
             <i class="fa-solid fa-circle-plus"></i>
@@ -47,7 +54,7 @@ include '../../session/koneksi.php';
     <div class="form-group mt-3 ml-5 mr-5">
         <label for="id_pilih_nama_barang_form_tambah_inventory_master">Ukuran Barang</label>
         <select name="name_pilih_ukuran_barang_form_tambah_inventory_master" class="form-control w-50" id="id_pilih_ukuran_barang_form_tambah_inventory_master" aria-describedby="pilihBarang">
-            <option value="AAAAAAA3">M12 x M8</option>
+            <!-- List Ukuran -->
         </select>
         <button class="btn btn-success" id="id_tambah_ukuran_barang_form_tambah_inventory_master" title="Tambah ukuran barang">
             <i class="fa-solid fa-circle-plus"></i>
@@ -58,8 +65,7 @@ include '../../session/koneksi.php';
     <div class="form-group mt-3 ml-5 mr-5">
         <label for="id_pilih_nama_barang_form_tambah_inventory_master">Material Barang</label>
         <select name="name_pilih_material_barang_form_tambah_inventory_master" class="form-control w-50" id="id_pilih_material_barang_form_tambah_inventory_master" aria-describedby="pilihBarang">
-            <option value="AAAAAAA4">Stainles Steel</option>
-            <option value="AAAAAAA5">Tungsten CA ( Carbide )</option>
+            <!-- List Material -->
         </select>
         <button class="btn btn-success" id="id_tambah_material_barang_form_tambah_inventory_master" title="Tambah material barang">
             <i class="fa-solid fa-circle-plus"></i>

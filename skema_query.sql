@@ -214,38 +214,70 @@ INNER JOIN tbl_master_material tblmaterial ON
 tblmaterial.id_material = tblinventory.id_material
 ORDER BY tblbarang.nama_barang ASC
 
+
+-- Konsep penomoran rak barang
+-- Jumlah Rak barang A-Z AA-ZZ AAA-ZZZ AAAA-ZZZZ AAAAA-ZZZZZ AAAAAA-ZZZZZZ AAAAAAA-ZZZZZZZ
+-- Jumlah Baris 0-9999999
+-- Jumlah Kolom 0-99999999999999
+
+
 -- CREATE TABLE RAK
 CREATE TABLE `db_mis`.`tbl_master_rak`(
 `id_rak` VARCHAR(5) NOT NULL,
-`nomor_rak` VARCHAR(7) NOT NULL,
+`nomor_rak` CHAR(7) NOT NULL,
 PRIMARY KEY(`id_rak`)) ENGINE = InnoDB;
 
 -- CREATE TABLE BARIS
 CREATE TABLE `db_mis`.`tbl_master_baris`(
 `id_baris` VARCHAR(5) NOT NULL,
 `id_rak` VARCHAR(5) NOT NULL,
-`nomor_baris` VARCHAR(7) NOT NULL,
+`nomor_baris` CHAR(7) NOT NULL,
 PRIMARY KEY(`id_baris`)) ENGINE = InnoDB;
 
 -- CREATE TABLE KOLOM
 CREATE TABLE `db_mis`.`tbl_master_kolom`(
 `id_kolom` VARCHAR(5) NOT NULL,
 `id_baris` VARCHAR(5) NOT NULL,
-`nomor_kolom` VARCHAR(7) NOT NULL,
+`nomor_kolom` CHAR(14) NOT NULL,
 PRIMARY KEY(`id_kolom`)) ENGINE = InnoDB;
 
 -- CREATE TABLE BIN
-CREATE TABLE `db_mis`.`tbl_lokasi_barang`(
-`id_lokasi_barang` VARCHAR(5) NOT NULL,
+CREATE TABLE `db_mis`.`tbl_bin`(
+`id_bin` VARCHAR(5) NOT NULL,
 `id_rak` VARCHAR(5) NOT NULL,
 `id_baris` VARCHAR(5) NOT NULL,
 `id_kolom` VARCHAR(5) NOT NULL,
 PRIMARY KEY(`id_bin`)) ENGINE = InnoDB;
 
--- CREATE TABLE TRACK BARANG
-CREATE TABLE `db_mis`.`tbl_track_barang`(
-`id_lokasi_barang` VARCHAR(5) NOT NULL,
+-- CREATE VIEW vw_bin
+CREATE VIEW vw_bin AS SELECT
+tbbin.id_bin,
+tbrak.nomor_rak,
+tbkolom.nomor_kolom,
+tbbaris.nomor_baris
+FROM tbl_bin tbbin
+INNER JOIN tbl_master_rak tbrak ON
+tbrak.id_rak = tbbin.id_bin
+INNER JOIN tbl_master_kolom tbkolom ON
+tbkolom.id_kolom = tbbin.id_kolom
+INNER JOIN tbl_master_baris tbbaris ON
+tbbaris.id_baris = tbbin.id_baris
+
+-- CREATE TABLE SKU -> Stock Keeping Unit
+CREATE TABLE `db_mis`.`tbl_sku`(
+`id_bin` VARCHAR(5) NOT NULL,
 `id_inventory` VARCHAR(8) NOT NULL) ENGINE = InnoDB;
+
+-- CREATE VIEW vw_sku
+CREATE VIEW vw_sku AS SELECT
+tbsku.id_bin,
+tbsku.id_inventory,
+vwbin.nomor_rak,
+vwbin.nomor_kolom,
+vwbin.nomor_baris
+FROM tbl_sku tbsku
+INNER JOIN vw_bin vwbin ON
+tbsku.id_bin = vwbin.id_bin
 
 -- CREATE TABLE BARANG MASUK
 CREATE TABLE `db_mis`.`tbl_barang_masuk`(

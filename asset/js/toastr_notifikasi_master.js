@@ -159,7 +159,7 @@ function alamat_vendor_berhasil_ditambahkan(){
     }
 }
 
-function namat_barang_berhasil_ditambahkan(){
+function nama_barang_berhasil_ditambahkan(){
     Command: toastr["success"]("Nama barang berhasil ditambahkan", "Nama barang tersimpan")
 
     toastr.options =
@@ -322,6 +322,29 @@ function alamat_karyawan_berhasil_ditambahkan(){
 
 function karyawan_berhasil_dihapus(){
     Command: toastr["info"]("Karyawan berhasil dihapus", "Karyawan terhapus")
+
+    toastr.options =
+    {
+    "closeButton": false,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "1800",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+    }
+}
+
+function departemen_berhasil_disimpan(){
+    Command: toastr["success"]("Departemen telah tersimpan", "Departemen tersimpan")
 
     toastr.options =
     {

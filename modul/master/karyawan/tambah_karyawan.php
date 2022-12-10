@@ -59,10 +59,16 @@ include '../../session/koneksi.php';
     <!-- Departemen karyawan -->
     <div class="form-group mt-3 ml-5 mr-5">
         <label for="id_pilih_departemen_form_tambah_karyawan_master">Pilih departemen</label>
-        <select name="" id="id_pilih_departemen_form_tambah_karyawan_master" class="form-control w-50" required>
+        <select name="name_departemen_karyawan_form_tambah_karyawan_master" id="id_pilih_departemen_form_tambah_karyawan_master" class="form-control w-50" required>
             <option value="" disabled selected>-- Pilih departemen --</option>
-            <option value="">Purchasing</option>
-            <option value="">Warehouse</option>
+            <?php 
+            $queryBarang = "SELECT * FROM tbl_master_departemen ORDER BY nama_departemen ASC";
+            $runQuery = mysqli_query($koneksi,$queryBarang);
+            while ($jumlahData = mysqli_fetch_array($runQuery)) {
+                # code...
+                echo "<option value='".$jumlahData['id_departemen']."'>".$jumlahData['nama_departemen']."</option>";
+            }
+            ?>
         </select>
         <button class="btn btn-success" id="id_tombol_tambah_departemen_form_tambah_karyawan_master" title="Tambah departemen">
             <i class="fa-solid fa-circle-plus"></i>

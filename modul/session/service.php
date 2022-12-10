@@ -188,8 +188,8 @@ switch ($_GET['aksi']) {
                 $unique_idTipe = '0123456789ABCDEFGHIJKLMNOPQRSTUVWQYZ';
                 $output_idTipe = substr(str_shuffle($unique_idTipe),0,8);
 
-                $idBarang = $_POST[''];
-                $namaTipe = $_POST[''];
+                $idBarang = $_POST['name_select_nama_barang_form_tambah_tipe_master'];
+                $namaTipe = $_POST['name_nama_tipe_form_tambah_tipe_master'];
 
                 $checkTipe = "SELECT * FROM tbl_master_tipe WHERE nama_tipe LIKE '%".$namaTipe."%'";
                 $insertTipe = "INSERT INTO tbl_master_tipe(id_tipe,
@@ -212,11 +212,11 @@ switch ($_GET['aksi']) {
                 $unique_idUkuran = '0123456789ABCDEFGHIJKLMNOPQRSTUVWQYZ';
                 $output_idUkuran = substr(str_shuffle($unique_idUkuran),0,8);
 
-                $idTipe = $_POST[''];
-                $namaUkuran = $_POST[''];
+                $idTipe = $_POST['name_pilih_tipe_barang_form_tambah_ukuran_barang_master'];
+                $namaUkuran = $_POST['name_tambah_ukuran_barang_form_tambah_ukuran_barang_master'];
 
                 $checkUkuran = "SELECT * FROM tbl_master_ukuran WHERE nama_ukuran LIKE '%".$namaUkuran."%'";
-                $insertUkuran = "INSERT INTO(id_ukuran,id_tipe,nama_ukuran)VALUES('$output_idUkuran','$idTipe','$namaUkuran')";
+                $insertUkuran = "INSERT INTO tbl_master_ukuran(id_ukuran,id_tipe,nama_ukuran)VALUES('$output_idUkuran','$idTipe','$namaUkuran')";
                 $run_checkUkuran = mysqli_query($koneksi,$checkUkuran);
 
                 if (mysqli_num_rows($run_checkUkuran) > 0) {
@@ -234,8 +234,8 @@ switch ($_GET['aksi']) {
                 $unique_idMaterial = '0123456789ABCDEFGHIJKLMNOPQRSTUVWQYZ';
                 $output_idMaterial = substr(str_shuffle($unique_idMaterial),0,8);
 
-                $idUkuran = $_POST[''];
-                $namaMaterial = $_POST[''];
+                $idUkuran = $_POST['name_pilih_ukuran_barang_form_tambah_material_master'];
+                $namaMaterial = $_POST['name_masukkan_material_form_tambah_material_master'];
 
                 $sql_checking = "SELECT * FROM tbl_master_material WHERE nama_material LIKE '%".$namaMaterial."%'";
                 $sql_InsertData = "INSERT INTO tbl_master_material(id_material,
@@ -301,8 +301,10 @@ switch ($_GET['aksi']) {
 
                 $namaKaryawan = $_POST['name_nama_karyawan_form_tambah_karyawan_master'];
                 $alamatKaryawan = $_POST['name_alamat_karyawan_form_tambah_karyawan_master'];
+                $departemenKaryawan = $_POST['name_departemen_karyawan_form_tambah_karyawan_master'];
                 $telfonKaryawan = $_POST['name_telfon_karyawan_form_tambah_karyawan_master'];
                 $emailKaryawan = $_POST['name_email_karyawan_form_tambah_karyawan_master'];
+                
 
                 $cekKaryawan = "SELECT * FROM vw_karyawan WHERE nama_karyawan LIKE '%".$namaKaryawan."%' AND telfon_karyawan LIKE '%".$telfonKaryawan."%'";
                 $insert_karyawan = "INSERT INTO tbl_master_karyawan(id_karyawan,
@@ -317,6 +319,11 @@ switch ($_GET['aksi']) {
                 '$telfonKaryawan',
                 '$emailKaryawan')";
 
+                $regkaryawan = "INSERT INTO tbl_register_karyawan(id_karyawan,
+                id_departemen,
+                id_status,
+                remarks)VALUES('$output_id_karyawan','$departemenKaryawan','AAAA1','-')";
+
                 $run_cekKaryawan = mysqli_query($koneksi, $cekKaryawan);
                 if (mysqli_num_rows($run_cekKaryawan) > 0) {
                     # code...
@@ -326,8 +333,112 @@ switch ($_GET['aksi']) {
                     # code...
                     $run_insertKaryawan = mysqli_query($koneksi,$insert_karyawan);
                     $run_insertKaryawanDetails = mysqli_query($koneksi,$insert_karyawanDetail);
+                    $run_saveRegKaryawan = mysqli_query($koneksi,$regkaryawan);
                 }
                 break;
+
+        case 'simpan_data_departemen':
+            # code...
+                $unique_id_departemen = '0123456789ABCDEFGHIJKLMNOPQRSTUVWQYZ';
+                $output_id_departemen = substr(str_shuffle($unique_id_departemen),0,5);
+
+                $namaDepartemen = $_POST['name_form_tambah_departemen_master'];
+
+                $checkDepartemen = "SELECT * FROM tbl_master_departemen WHERE nama_departemen LIKE '%".$namaDepartemen."%'";
+                $simpanDepartemen = "INSERT INTO tbl_master_departemen(id_departemen,nama_departemen)VALUES('$output_id_departemen','$namaDepartemen')";
+
+                if (mysqli_num_rows() > 0) {
+                    # code...
+                    echo "...";
+                }
+                else {
+                    # code...
+                    $run_simpan = mysqli_query($koneksi, $simpanDepartemen);
+                }
+            break;
+
+        case 'fetch_tipe_form_tambah_ukuran':
+            # code...
+                $idBarang = $_POST['id_pilih_nama_barang_form_tambah_ukuran_master'];
+                $querySql = "SELECT * FROM tbl_master_tipe WHERE id_barang LIKE '%".$idBarang."%'";
+                $runSql = mysqli_query($koneksi,$querySql);
+                while ($hasilQuery = mysqli_fetch_array($runSql)) {
+                    # code...
+                    $idTipe = $hasilQuery['id_tipe'];
+                    $namaTipe = $hasilQuery['nama_tipe'];
+                    echo "<option value = '$idTipe'>$namaTipe</option>";
+                }
+            break;
+
+        case 'fetch_tipe_form_tambah_material':
+            # code...
+            $id_barang = $_POST['id_pilih_nama_barang_form_tambah_material_master'];
+            $queryData = "SELECT * FROM tbl_master_tipe WHERE id_barang LIKE '%".$id_barang."%'";
+            $execQuery = mysqli_query($koneksi,$queryData);
+            while ($hasilData = mysqli_fetch_arraY($execQuery)) {
+                # code...
+                echo "<option value='".$hasilData['id_tipe']."'>".$hasilData['nama_tipe']."</option>";
+            }
+            break;
+
+        case 'fetch_ukuran_form_tambah_material':
+            # code...
+            $idTipe = $_POST['id_pilih_tipe_barang_form_tambah_material_barang'];
+            $queryData = "SELECT * FROM tbl_master_ukuran WHERE id_tipe LIKE '%".$idTipe."%'";
+            $executeData = mysqli_query($koneksi,$queryData);
+            while ($hasilUkuran = mysqli_fetch_array($executeData)) {
+                # code...
+                echo "<option value='".$hasilUkuran['id_ukuran']."'>".$hasilUkuran['nama_ukuran']."</option>";
+            }
+            break;
+
+        case 'fetch_tipe_form_tambah_inventori':
+            # code...
+            $idBarang = $_POST['id_pilih_nama_barang_form_tambah_inventory_master'];
+            $qData = "SELECT * FROM tbl_master_tipe WHERE id_barang LIKE '%".$idBarang."%'";
+            $executeQ = mysqli_query($koneksi,$qData);
+            while ($hasil = mysqli_fetch_array($executeQ)) {
+                # code...
+                echo "<option value='".$hasil['id_tipe']."'>".$hasil['nama_tipe']."</option>";
+            }
+            break;
+
+        case 'fetch_ukuran_form_tambah_inventori':
+            # code...
+            $idTipe = $_POST['id_pilih_tipe_barang_form_tambah_inventory_master'];
+            $Query = "SELECT * FROM tbl_master_ukuran WHERE id_tipe LIKE '%".$idTipe."%'";
+            $execute = mysqli_query($koneksi,$Query);
+            if (mysqli_num_rows($execute) > 0) {
+                # code...
+                while ($hasil = mysqli_fetch_array($execute)) {
+                    # code...
+                    echo "<option value='".$hasil['id_ukuran']."'>".$hasil['nama_ukuran']."</option>";
+                }
+            }
+            else {
+                # code...
+                echo "<option value=''>Ukuran tidak ditemukan</option>";
+            }
+
+            break;
+
+        case 'fetch_material_form_tambah_inventori':
+            # code...
+            $idUkuran = $_POST['id_pilih_ukuran_barang_form_tambah_inventory_master'];
+            $queryData = "SELECT * FROM tbl_master_material WHERE id_ukuran LIKE '%".$idUkuran."%'";
+            $execute_query = mysqli_query($koneksi,$queryData);
+            if (mysqli_num_rows($execute_query) > 0) {
+                # code...
+                while ($hasil = mysqli_fetch_array($execute_query)) {
+                    # code...
+                    echo "<option value='".$hasil['id_material']."'>".$hasil['nama_material']."</option>";
+                }
+            }
+            else {
+                # code...
+                echo "<option value=''>Ukuran tidak ditemukan</option>";
+            }
+            break;
     
     default:
         # code...

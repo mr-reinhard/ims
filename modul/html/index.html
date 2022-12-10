@@ -33,7 +33,7 @@
 
             // Testing Area
             //==================================
-            
+            load_form_tambah_inventory();
             //=================================
             // end testing area
             
@@ -317,8 +317,86 @@
                     type:'POST',
                     data:$(this).serialize(),
                     success:function(data){
-                        load_list_vendor();
-                        namat_barang_berhasil_ditambahkan();
+                        load_form_tambah_inventory();
+                        nama_barang_berhasil_ditambahkan();
+                    }
+                    });
+                }
+                })
+            });
+
+            // Simpan tipe barang
+            $("#main_content_master").on("submit","#id_form_tambah_nama_tipe_master",function(e){
+                e.preventDefault();
+                Swal.fire({
+                title: 'Nama tipe sudah benar?',
+                text: "Mohon di check ulang sebelum menyimpan data.",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Simpan'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                $.ajax({
+                    url:'../session/service.php?aksi=simpan_tipe_barang',
+                    type:'POST',
+                    data:$(this).serialize(),
+                    success:function(data){
+                        load_form_tambah_inventory();
+                        nama_tipe_berhasil_ditambahkan();
+                    }
+                    });
+                }
+                })
+            });
+
+            // simpan ukuran barang
+            $("#main_content_master").on("submit","#id_form_tambah_ukuran_master",function(e){
+                e.preventDefault();
+                Swal.fire({
+                title: 'Nama ukuran sudah benar?',
+                text: "Mohon di check ulang sebelum menyimpan data.",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Simpan'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                $.ajax({
+                    url:'../session/service.php?aksi=simpan_ukuran_barang',
+                    type:'POST',
+                    data:$(this).serialize(),
+                    success:function(data){
+                        load_form_tambah_inventory();
+                        nama_ukuran_berhasil_ditambahkan();
+                    }
+                    });
+                }
+                })
+            });
+
+            // Simpan material barang
+            $("#main_content_master").on("submit","#id_form_tambah_material_master",function(e){
+                e.preventDefault();
+                Swal.fire({
+                title: 'Nama material sudah benar?',
+                text: "Mohon di check ulang sebelum menyimpan data.",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Simpan'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                $.ajax({
+                    url:'../session/service.php?aksi=simpan_material_barang',
+                    type:'POST',
+                    data:$(this).serialize(),
+                    success:function(data){
+                        load_form_tambah_inventory();
+                        nama_material_berhasil_ditambahkan();
                     }
                     });
                 }
@@ -371,6 +449,32 @@
                     success:function(data){
                         load_list_karyawan();
                         data_karyawan_berhasil_ditambahkan();
+                    }
+                    });
+                }
+                })
+            });
+
+            // simpan data departemen
+            $("#main_content_master").on("submit","#id_form_tambah_departemen_master",function(e){
+                e.preventDefault();
+                Swal.fire({
+                title: 'Data departemen sudah benar?',
+                text: "Mohon di check ulang sebelum menyimpan data.",
+                icon: 'question',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Simpan'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                $.ajax({
+                    url:'../session/service.php?aksi=simpan_data_departemen',
+                    type:'POST',
+                    data:$(this).serialize(),
+                    success:function(data){
+                        load_form_tambah_karyawan();
+                        departemen_berhasil_disimpan();
                     }
                     });
                 }
@@ -492,6 +596,108 @@
                 success:function(data)
                 {
                     $('#main_content_master').html(data);
+                }
+                });
+            });
+
+            // Fetch Tipe di form tambah ukuran barang
+            $("#main_content_master").on("change","#id_pilih_nama_barang_form_tambah_ukuran_master",function(){
+                var idBarang = $(this).val();
+                $.ajax({
+                url:"../session/service.php?aksi=fetch_tipe_form_tambah_ukuran",
+                method:"POST",
+                data:{
+                    id_pilih_nama_barang_form_tambah_ukuran_master:idBarang
+                },
+                dataType:"text",
+                success:function(data)
+                {
+                    $('#id_pilih_tipe_barang_form_tambah_ukuran_master').html(data);
+                }
+                });
+            });
+
+            // Fetch Tipe di form tambah material barang
+            $("#main_content_master").on("change","#id_pilih_nama_barang_form_tambah_material_master",function(){
+                var idBarang = $(this).val();
+                $.ajax({
+                url:"../session/service.php?aksi=fetch_tipe_form_tambah_material",
+                method:"POST",
+                data:{
+                    id_pilih_nama_barang_form_tambah_material_master:idBarang
+                },
+                dataType:"text",
+                success:function(data)
+                {
+                    $('#id_pilih_tipe_barang_form_tambah_material_barang').html(data);
+                }
+                });
+            });
+
+            // Fetch ukuran di form tambah material barang
+            $("#main_content_master").on("change","#id_pilih_tipe_barang_form_tambah_material_barang",function(){
+                var idTipe = $(this).val();
+                $.ajax({
+                url:"../session/service.php?aksi=fetch_ukuran_form_tambah_material",
+                method:"POST",
+                data:{
+                    id_pilih_tipe_barang_form_tambah_material_barang:idTipe
+                },
+                dataType:"text",
+                success:function(data)
+                {
+                    $('#id_pilih_ukuran_barang_form_tambah_material_barang_master').html(data);
+                }
+                });
+            });
+
+            // Fetch tipe di form tambah inventori
+            $("#main_content_master").on("change","#id_pilih_nama_barang_form_tambah_inventory_master",function(){
+                var idBarang = $(this).val();
+                $.ajax({
+                url:"../session/service.php?aksi=fetch_tipe_form_tambah_inventori",
+                method:"POST",
+                data:{
+                    id_pilih_nama_barang_form_tambah_inventory_master:idBarang
+                },
+                dataType:"text",
+                success:function(data)
+                {
+                    $('#id_pilih_tipe_barang_form_tambah_inventory_master').html(data);
+                }
+                });
+            });
+
+            // Fetch ukuran di form tambah inventori
+            $("#main_content_master").on("change","#id_pilih_tipe_barang_form_tambah_inventory_master",function(){
+                var idTipe = $(this).val();
+                $.ajax({
+                url:"../session/service.php?aksi=fetch_ukuran_form_tambah_inventori",
+                method:"POST",
+                data:{
+                    id_pilih_tipe_barang_form_tambah_inventory_master:idTipe
+                },
+                dataType:"text",
+                success:function(data)
+                {
+                    $('#id_pilih_ukuran_barang_form_tambah_inventory_master').html(data);
+                }
+                });
+            });
+
+            // Fetch material di form tambah inventori
+            $("#main_content_master").on("change","#id_pilih_ukuran_barang_form_tambah_inventory_master",function(){
+                var idUkuran = $(this).val();
+                $.ajax({
+                url:"../session/service.php?aksi=fetch_material_form_tambah_inventori",
+                method:"POST",
+                data:{
+                    id_pilih_ukuran_barang_form_tambah_inventory_master:idUkuran
+                },
+                dataType:"text",
+                success:function(data)
+                {
+                    $('#id_pilih_material_barang_form_tambah_inventory_master').html(data);
                 }
                 });
             });

@@ -1,13 +1,5 @@
 <table class="table table-hover">
 
-    <script>
-        $(document).ready(function(){
-            $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-            });
-        });
-    </script>
-
     <style>
       tr{
         text-align: center;
@@ -23,8 +15,12 @@
               <th scope="col">Mat.</th>
               <th scope="col">Qty</th>
               <th>
-                <button class="btn btn-success" id="id_btn_tambah_inventory_master" data-toggle="tooltip" data-placement="bottom" title="Tambah Barang">
+                <button type="button" class="btn btn-success" id="id_btn_tambah_inventory_master" title="Tambah Barang">
                     <i class="fas fa-cart-arrow-down"></i>
+                </button>
+
+                <button type="button" class="btn btn-primary">
+                  <i class="fa-solid fa-boxes-stacked"></i>
                 </button>
               </th>
             </tr>
@@ -32,83 +28,159 @@
 
   <tbody>
 
-    <tr style="background-color: #F5B7B1;">
-      <th scope="row justify-content-center">1</th>
-      <td>Mata bor</td>
-      <td>Tapping</td>
-      <td>8mm</td>
-      <td>Tungsten CA</td>
-      <td>25</td>
-      <td>
-        <button class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Tambah Qty">
-            <i class="fas fa-plus-circle"></i>
-        </button>
+    <?php 
+    include '../../session/koneksi.php';
+    $no = 1;
+    $queryData = "SELECT * FROM vw_inventory ORDER BY nama_barang ASC";
+    $runData = mysqli_query($koneksi,$queryData);
+    while ($hasil = mysqli_fetch_array($runData)) {
+      # code...
+      if ($hasil['qty'] > 5) {
+        # code...
+        ?>
+        <tr>
+          <td>
+            <?php echo $no++; ?>
+          </td>
 
-        <button class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Detail Barang">
-            <i class="fa-solid fa-eye"></i>
-        </button>
+          <td>
+            <?php echo $hasil['nama_barang']; ?>
+          </td>
 
-        <button class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Edit Barang">
-            <i class="fas fa-edit"></i>
-        </button>
+          <td>
+            <?php echo $hasil['nama_tipe'] ?>
+          </td>
 
-        <button class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="Hapus Barang">
-            <i class="fas fa-minus-circle"></i>
-        </button>
-      </td>
-    </tr>
+          <td>
+            <?php echo $hasil['nama_ukuran']; ?>
+          </td>
 
-    <tr style="background-color:#F9E79F;">
-      <th scope="row justify-content-center">2</th>
-      <td>Mata bor</td>
-      <td>Tapping</td>
-      <td>8mm</td>
-      <td>Tungsten CA</td>
-      <td>25</td>
-      <td>
-        <button class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Tambah Qty">
-            <i class="fas fa-plus-circle"></i>
-        </button>
+          <td>
+            <?php echo $hasil['nama_material']; ?>
+          </td>
 
-        <button class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Detail Customer">
-            <i class="fa-solid fa-eye"></i>
-        </button>
+          <td>
+            <?php echo $hasil['qty']; ?>
+          </td>
 
-        <button class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Edit Customer">
-            <i class="fas fa-edit"></i>
-        </button>
+          <td>
+            <button class="btn btn-success" title="Tambah Qty">
+              <i class="fas fa-plus-circle"></i>
+            </button>
 
-        <button class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="Hapus Customer">
-            <i class="fas fa-minus-circle"></i>
-        </button>
-      </td>
-    </tr>
+            <button class="btn btn-primary" title="Detail Customer">
+              <i class="fa-solid fa-eye"></i>
+            </button>
 
-    <tr>
-      <th scope="row justify-content-center">1</th>
-      <td>Mata bor</td>
-      <td>Tapping</td>
-      <td>8mm</td>
-      <td>Tungsten CA</td>
-      <td>25</td>
-      <td>
-        <button class="btn btn-success" data-toggle="tooltip" data-placement="top" title="Tambah Qty">
-            <i class="fas fa-plus-circle"></i>
-        </button>
+            <button class="btn btn-warning" title="Edit Customer">
+                <i class="fas fa-edit"></i>
+            </button>
 
-        <button class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Detail Customer">
-            <i class="fa-solid fa-eye"></i>
-        </button>
+            <button class="btn btn-danger" title="Hapus Customer">
+                <i class="fas fa-minus-circle"></i>
+            </button>
+          </td>
+        </tr>
+        <?php
+      }
+      elseif ($hasil['qty'] <= 5 && $hasil['qty'] > 0) {
+        # code...
+        ?>
+        <tr style="background-color: #F9E79F;">
+          <td>
+            <?php echo $no++; ?>
+          </td>
 
-        <button class="btn btn-warning" data-toggle="tooltip" data-placement="bottom" title="Edit Customer">
-            <i class="fas fa-edit"></i>
-        </button>
+          <td>
+            <?php echo $hasil['nama_barang']; ?>
+          </td>
 
-        <button class="btn btn-danger" data-toggle="tooltip" data-placement="right" title="Hapus Customer">
-            <i class="fas fa-minus-circle"></i>
-        </button>
-      </td>
-    </tr>
+          <td>
+            <?php echo $hasil['nama_tipe'] ?>
+          </td>
+
+          <td>
+            <?php echo $hasil['nama_ukuran']; ?>
+          </td>
+
+          <td>
+            <?php echo $hasil['nama_material']; ?>
+          </td>
+
+          <td>
+            <?php echo $hasil['qty']; ?>
+          </td>
+
+          <td>
+            <button class="btn btn-success" title="Tambah Qty">
+                <i class="fas fa-plus-circle"></i>
+            </button>
+
+            <button class="btn btn-primary" title="Detail Customer">
+                <i class="fa-solid fa-eye"></i>
+            </button>
+
+            <button class="btn btn-warning" title="Edit Customer">
+                <i class="fas fa-edit"></i>
+            </button>
+
+            <button class="btn btn-danger" title="Hapus Customer">
+                <i class="fas fa-minus-circle"></i>
+            </button>
+          </td>
+        </tr>
+        <?php
+      }
+      elseif ($hasil['qty'] == 0) {
+        # code...
+        ?>
+        <tr style="background-color: #F5B7B1;">
+          <td>
+            <?php echo $no++; ?>
+          </td>
+
+          <td>
+            <?php echo $hasil['nama_barang']; ?>
+          </td>
+
+          <td>
+            <?php echo $hasil['nama_tipe'] ?>
+          </td>
+
+          <td>
+            <?php echo $hasil['nama_ukuran']; ?>
+          </td>
+
+          <td>
+            <?php echo $hasil['nama_material']; ?>
+          </td>
+
+          <td>
+            <?php echo $hasil['qty']; ?>
+          </td>
+
+          <td>
+            <button class="btn btn-success" title="Tambah Qty">
+                <i class="fas fa-plus-circle"></i>
+            </button>
+
+            <button class="btn btn-primary" title="Detail Customer">
+                <i class="fa-solid fa-eye"></i>
+            </button>
+
+            <button class="btn btn-warning" title="Edit Customer">
+                <i class="fas fa-edit"></i>
+            </button>
+
+            <button class="btn btn-danger" title="Hapus Customer">
+                <i class="fas fa-minus-circle"></i>
+            </button>
+          </td>
+        </tr>
+        <?php
+      }
+    }
+    ?>
 
   </tbody>
 

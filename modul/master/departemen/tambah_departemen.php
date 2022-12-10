@@ -17,7 +17,7 @@ include '../../session/koneksi.php';
     <!-- Nama Departemen -->
     <div class="form-group mt-3 ml-5 mr-5">
         <label for="id_nama_departemen_form_tambah_departemen_master">Nama Departemen</label>
-        <input type="text" name="" class="form-control w-50" id="id_nama_departemen_form_tambah_departemen_master" aria-describedby="namaDept" autofocus required>
+        <input type="text" name="name_form_tambah_departemen_master" class="form-control w-50" id="id_nama_departemen_form_tambah_departemen_master" aria-describedby="namaDept" autofocus required>
         <small id="namaDept">Masukkan nama departemen</small>
     </div>
 

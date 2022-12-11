@@ -64,19 +64,15 @@
           </td>
 
           <td>
-            <button class="btn btn-success" title="Tambah Qty">
+            <button type="button" class="btn btn-success" title="Tambah Qty">
               <i class="fas fa-plus-circle"></i>
             </button>
 
-            <button class="btn btn-primary" title="Detail Customer">
+            <button type="button" class="btn btn-primary" title="Detail Barang">
               <i class="fa-solid fa-eye"></i>
             </button>
 
-            <button class="btn btn-warning" title="Edit Customer">
-                <i class="fas fa-edit"></i>
-            </button>
-
-            <button class="btn btn-danger" title="Hapus Customer">
+            <button type="button" class="btn btn-danger" id="id_btn_hapus_inventory_form_list_inventory" value="<?php echo $hasil['id_inventory'] ?>" title="Hapus Barang">
                 <i class="fas fa-minus-circle"></i>
             </button>
           </td>
@@ -112,19 +108,15 @@
           </td>
 
           <td>
-            <button class="btn btn-success" title="Tambah Qty">
+            <button type="button" class="btn btn-success" title="Tambah Qty">
                 <i class="fas fa-plus-circle"></i>
             </button>
 
-            <button class="btn btn-primary" title="Detail Customer">
+            <button type="button" class="btn btn-primary" title="Detail Barang">
                 <i class="fa-solid fa-eye"></i>
             </button>
 
-            <button class="btn btn-warning" title="Edit Customer">
-                <i class="fas fa-edit"></i>
-            </button>
-
-            <button class="btn btn-danger" title="Hapus Customer">
+            <button type="button" class="btn btn-danger" id="id_btn_hapus_inventory_form_list_inventory" value="<?php echo $hasil['id_inventory'] ?>" title="Hapus Barang">
                 <i class="fas fa-minus-circle"></i>
             </button>
           </td>
@@ -160,19 +152,15 @@
           </td>
 
           <td>
-            <button class="btn btn-success" title="Tambah Qty">
+            <button type="button" class="btn btn-success" title="Tambah Qty">
                 <i class="fas fa-plus-circle"></i>
             </button>
 
-            <button class="btn btn-primary" title="Detail Customer">
+            <button type="button" class="btn btn-primary" title="Detail Barang">
                 <i class="fa-solid fa-eye"></i>
             </button>
 
-            <button class="btn btn-warning" title="Edit Customer">
-                <i class="fas fa-edit"></i>
-            </button>
-
-            <button class="btn btn-danger" title="Hapus Customer">
+            <button type="button" class="btn btn-danger" id="id_btn_hapus_inventory_form_list_inventory" value="<?php echo $hasil['id_inventory'] ?>" title="Hapus Barang">
                 <i class="fas fa-minus-circle"></i>
             </button>
           </td>

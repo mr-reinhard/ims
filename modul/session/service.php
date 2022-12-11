@@ -291,6 +291,13 @@ switch ($_GET['aksi']) {
                 }
                 break;
 
+        case 'hapus_data_inventori':
+            # code...
+            $idInventory = $_POST['id_inventory'];
+            $sqlDeleteInventory = "DELETE FROM tbl_inventory WHERE id_inventory LIKE '%".$idInventory."%'";
+            $runDelete = mysqli_query($koneksi,$sqlDeleteInventory);
+            break;
+
         case 'simpan_data_karyawan':
             # code...
                 $unique_id_karyawan = '0123456789ABCDEFGHIJKLMNOPQRSTUVWQYZ';

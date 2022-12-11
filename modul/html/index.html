@@ -36,7 +36,7 @@
             load_form_tambah_inventory();
             //=================================
             // end testing area
-            
+
 
             $("#id_navbar_menu_master").on("click","#id_beranda_home_master",function(){
                 load_main_menu_master();
@@ -566,6 +566,35 @@
                 })
             });
 
+            // Hapus data inventory
+            $("#main_content_master").on("click", "#id_btn_hapus_inventory_form_list_inventory", function() {
+                var idInventory = $(this).attr("value");
+                Swal.fire({
+                    title: 'Apakah yakin akan menghapus barang?',
+                    text: "Mohon di check ulang sebelum menghapus data.",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Hapus'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                    $.ajax({
+                        url: '../session/service.php?aksi=hapus_data_inventori',
+                        type: 'POST',
+                        data: {
+                            id_inventory:idInventory
+                        },
+                        success: function(data) {
+                            // Trigger here
+                            load_list_barang();
+                            inventori_berhasil_dihapus();
+                        }
+                    });
+                    }
+                })
+            });
+
             // bukan form tambah alamat customer dengan parameter id customer
             $("#main_content_master").on("click","#id_button_tambah_alamat_customer_master",function(){
                 var idCust = $(this).attr("value");
@@ -658,13 +687,13 @@
                 url:"../session/service.php?aksi=fetch_tipe_form_tambah_inventori",
                 method:"POST",
                 data:{
-                    id_pilih_nama_barang_form_tambah_inventory_master:idBarang
+                    id_pilih_nama_barang_form_tambah_inventory_master:idBarang,
                 },
                 dataType:"text",
                 success:function(data)
                 {
                     $('#id_pilih_tipe_barang_form_tambah_inventory_master').html(data);
-                }
+                }                
                 });
             });
 

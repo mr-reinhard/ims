@@ -34,8 +34,16 @@ include '../../session/koneksi.php';
             }
             ?>
         </select>
-        <button class="btn btn-success" id="id_tambah_nama_barang_form_tambah_inventory_master" title="Tambah nama barang">
+        <button type="button" class="btn btn-success mt-2" id="id_tambah_nama_barang_form_tambah_inventory_master" title="Tambah nama barang">
             <i class="fa-solid fa-circle-plus"></i>
+        </button>
+
+        <button type="button" class="btn btn-warning mt-2" id="" title="Edit Nama Barang">
+            <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+
+        <button type="button" class="btn btn-danger mt-2" id="" title="Hapus nama Barang">
+            <i class="fa-solid fa-circle-xmark"></i>
         </button>
     </div>
 
@@ -45,8 +53,16 @@ include '../../session/koneksi.php';
         <select name="name_pilih_tipe_barang_form_tambah_inventory_master" class="form-control w-50" id="id_pilih_tipe_barang_form_tambah_inventory_master" aria-describedby="pilihBarang">
             <!-- List Tipe -->
         </select>
-        <button class="btn btn-success" id="id_tambah_tipe_barang_form_tambah_inventory_master" title="Tambah tipe barang">
+        <button type="button" class="btn btn-success mt-2" id="id_tambah_tipe_barang_form_tambah_inventory_master" title="Tambah tipe barang">
             <i class="fa-solid fa-circle-plus"></i>
+        </button>
+
+        <button type="button" class="btn btn-warning mt-2" id="" title="Edit Tipe Barang">
+            <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+
+        <button type="button" class="btn btn-danger mt-2" id="" title="Hapus Tipe Barang">
+            <i class="fa-solid fa-circle-xmark"></i>
         </button>
     </div>
 
@@ -56,8 +72,16 @@ include '../../session/koneksi.php';
         <select name="name_pilih_ukuran_barang_form_tambah_inventory_master" class="form-control w-50" id="id_pilih_ukuran_barang_form_tambah_inventory_master" aria-describedby="pilihBarang">
             <!-- List Ukuran -->
         </select>
-        <button class="btn btn-success" id="id_tambah_ukuran_barang_form_tambah_inventory_master" title="Tambah ukuran barang">
+        <button class="btn btn-success mt-2" id="id_tambah_ukuran_barang_form_tambah_inventory_master" title="Tambah ukuran barang">
             <i class="fa-solid fa-circle-plus"></i>
+        </button>
+
+        <button type="button" class="btn btn-warning mt-2" title="Edit Ukuran Barang">
+            <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+
+        <button type="button" class="btn btn-danger mt-2" title="Hapus Ukuran Barang">
+            <i class="fa-solid fa-circle-xmark"></i>
         </button>
     </div>
 
@@ -67,8 +91,16 @@ include '../../session/koneksi.php';
         <select name="name_pilih_material_barang_form_tambah_inventory_master" class="form-control w-50" id="id_pilih_material_barang_form_tambah_inventory_master" aria-describedby="pilihBarang">
             <!-- List Material -->
         </select>
-        <button class="btn btn-success" id="id_tambah_material_barang_form_tambah_inventory_master" title="Tambah material barang">
+        <button type="button" class="btn btn-success mt-2" id="id_tambah_material_barang_form_tambah_inventory_master" title="Tambah material barang">
             <i class="fa-solid fa-circle-plus"></i>
+        </button>
+
+        <button type="button" class="btn btn-warning mt-2" id="" title="Edit Material Barang">
+            <i class="fa-solid fa-pen-to-square"></i>
+        </button>
+
+        <button type="button" class="btn btn-danger mt-2" id="" title="Hapus Material Barang">
+            <i class="fa-solid fa-circle-xmark"></i>
         </button>
     </div>
 

@@ -72,6 +72,10 @@
               <i class="fa-solid fa-eye"></i>
             </button>
 
+            <button type="button" class="btn btn-warning" value="<?php echo $hasil['id_inventory'] ?>" id="id_btn_edit_inventory_form_list_inventory_master" title="Edit barang">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+
             <button type="button" class="btn btn-danger" id="id_btn_hapus_inventory_form_list_inventory" value="<?php echo $hasil['id_inventory'] ?>" title="Hapus Barang">
                 <i class="fas fa-minus-circle"></i>
             </button>
@@ -116,6 +120,10 @@
                 <i class="fa-solid fa-eye"></i>
             </button>
 
+            <button type="button" class="btn btn-warning" value="<?php echo $hasil['id_inventory'] ?>" id="id_btn_edit_inventory_form_list_inventory_master" title="Edit Barang">
+              <i class="fa-solid fa-pen-to-square"></i>
+            </button>
+
             <button type="button" class="btn btn-danger" id="id_btn_hapus_inventory_form_list_inventory" value="<?php echo $hasil['id_inventory'] ?>" title="Hapus Barang">
                 <i class="fas fa-minus-circle"></i>
             </button>
@@ -158,6 +166,10 @@
 
             <button type="button" class="btn btn-primary" title="Detail Barang">
                 <i class="fa-solid fa-eye"></i>
+            </button>
+
+            <button type="button" class="btn btn-warning" value="<?php echo $hasil['id_inventory'] ?>" id="id_btn_edit_inventory_form_list_inventory_master"  title="Edit Barang">
+              <i class="fa-solid fa-pen-to-square"></i>
             </button>
 
             <button type="button" class="btn btn-danger" id="id_btn_hapus_inventory_form_list_inventory" value="<?php echo $hasil['id_inventory'] ?>" title="Hapus Barang">

@@ -446,6 +446,32 @@ switch ($_GET['aksi']) {
                 echo "<option value=''>Ukuran tidak ditemukan</option>";
             }
             break;
+
+        case 'simpan_edit_inventory':
+            # code...
+            $idInv = $_POST['name_id_inventory_form_edit_inventory_master'];
+            $namaBarang = $_POST['name_nama_barang_form_edit_inventory_master'];
+            $namaTipe = $_POST['name_nama_tipe_form_edit_inventory_master'];
+            $namaUkuran = $_POST['name_nama_ukuran_form_edit_inventory_master'];
+            $namaMaterial = $_POST['name_nama_material_form_edit_inventory_master'];
+            $qtyBarang = $_POST['name_qty_form_edit_inventory_master'];
+
+            $cektblInventory = "SELECT * FROM tbl_inventory WHERE id_inventory LIKE '%".$idInv."%'";
+            $run_tblInventory = mysqli_query($koneksi,$cektblInventory);
+            $fetchArray_tblInventory = mysqli_fetch_array($run_tblInventory);
+            
+            $query_tblMasterBarang = "UPDATE tbl_master_barang SET nama_barang = '$namaBarang' WHERE id_barang LIKE '%".$fetchArray_tblInventory['id_barang']."%'";
+            $query_tblTipeBarang = "UPDATE tbl_master_tipe SET nama_tipe = '$namaTipe' WHERE id_tipe LIKE '%".$fetchArray_tblInventory['id_tipe']."%'";
+            $query_tblUkuranBarang = "UPDATE tbl_master_ukuran SET nama_ukuran = '$namaUkuran' WHERE id_ukuran LIKE '%".$fetchArray_tblInventory['id_ukuran']."%'";
+            $query_tblMaterialBarang = "UPDATE tbl_master_material SET nama_material = '$namaMaterial' WHERE id_material LIKE '%".$fetchArray_tblInventory['id_material']."%'";
+            $query_tblInventory = "UPDATE tbl_inventory SET qty = '$qtyBarang' WHERE id_inventory LIKE '%".$fetchArray_tblInventory['id_inventory']."%'";
+                # code...
+            $run_updateBarang = mysqli_query($koneksi,$query_tblMasterBarang);
+            $run_updateTipe = mysqli_query($koneksi,$query_tblTipeBarang);
+            $run_updateUkuran = mysqli_query($koneksi,$query_tblUkuranBarang);
+            $run_updateMaterial = mysqli_query($koneksi,$query_tblMaterialBarang);
+            $run_updateQty = mysqli_query($koneksi,$query_tblInventory);
+            break;
     
     default:
         # code...

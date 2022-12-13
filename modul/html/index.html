@@ -429,6 +429,32 @@
                 })
             });
 
+            // simpan edit inventory
+            $("#main_content_master").on("submit","#id_form_edit_inventory",function(e){
+                e.preventDefault();
+                Swal.fire({
+                    title: 'Data inventori sudah benar?',
+                    text: "Mohon di check ulang sebelum menyimpan data.",
+                    icon: 'question',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Simpan'
+                    }).then((result) => {
+                    if (result.isConfirmed) {
+                    $.ajax({
+                        url:'../session/service.php?aksi=simpan_edit_inventory',
+                        type:'POST',
+                        data:$(this).serialize(),
+                        success:function(data){
+                            load_list_barang();
+                            inventori_berhasil_update();
+                        }
+                        });
+                    }
+                    })
+            });
+
             // simpan data karyawan
             $("#main_content_master").on("submit","#id_form_tambah_karyawan_master",function(e){
                 e.preventDefault();
@@ -603,6 +629,23 @@
                 method:"GET",
                 data:{
                     id_customer:idCust
+                },
+                dataType:"text",
+                success:function(data)
+                {
+                    $('#main_content_master').html(data);
+                }
+                });
+            });
+
+            // Buka form edit inventory dengan parameter id_inventory
+            $("#main_content_master").on("click","#id_btn_edit_inventory_form_list_inventory_master",function(){
+                var idInventory = $(this).attr("value");
+                $.ajax({
+                url:"../master/gudang/edit_inventory.php",
+                method:"GET",
+                data:{
+                    id_inventory:idInventory
                 },
                 dataType:"text",
                 success:function(data)

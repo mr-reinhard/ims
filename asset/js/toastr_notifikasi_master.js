@@ -205,6 +205,30 @@ function inventori_berhasil_ditambahkan(){
     }
 }
 
+// Inventory berhasil di update
+function inventori_berhasil_update(){
+    Command: toastr["info"]("Inventori berhasil diperbaharui", "Inventori Terbaharui")
+
+    toastr.options =
+    {
+    "closeButton": false,
+    "debug": false,
+    "newestOnTop": false,
+    "progressBar": false,
+    "positionClass": "toast-top-right",
+    "preventDuplicates": false,
+    "onclick": null,
+    "showDuration": "300",
+    "hideDuration": "1000",
+    "timeOut": "1800",
+    "extendedTimeOut": "1000",
+    "showEasing": "swing",
+    "hideEasing": "linear",
+    "showMethod": "fadeIn",
+    "hideMethod": "fadeOut"
+    }
+}
+
 function inventori_berhasil_dihapus(){
     Command: toastr["info"]("Inventori berhasil dihapus", "Inventori terhapus")
 

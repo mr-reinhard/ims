@@ -279,16 +279,6 @@ FROM tbl_sku tbsku
 INNER JOIN vw_bin vwbin ON
 tbsku.id_bin = vwbin.id_bin
 
--- CREATE TABLE BARANG MASUK
-CREATE TABLE `db_mis`.`tbl_barang_masuk`(
-`id_barang_masuk` VARCHAR(8) NOT NULL,
-`id_inventory` VARCHAR(8) NOT NULL,
-`tanggal_masuk` DATE NOT NULL,
-`id_pic` VARCHAR(8) NOT NULL,
-`qty` CHAR(9) NOT NULL,
-`remarks` TEXT NOT NULL,
-PRIMARY KEY(`id_barang_masuk`)) ENGINE = InnoDB;
-
 -- CREATE VIEW vw_barang_keluar
 CREATE VIEW vw_barang_masuk AS SELECT
 tbbarangmasuk.id_barang_masuk,
@@ -330,16 +320,39 @@ PRIMARY KEY(`id_barang_keluar`)) ENGINE = InnoDB;
 
 
 -- CREATE TABLE MASTER STATUS PEMBELIAN
+-- PROSES
 -- SUKSES
 -- GAGAL
--- TUNDA
+-- PENDING
 CREATE TABLE `db_mis`.`tbl_master_status_pembelian`(
-`id_status` VARCHAR(5) NOT NULL,
-`nama_status` CHAR(5) NOT NULL,
+`id_status` CHAR(1) NOT NULL,
+`nama_status` CHAR(7) NOT NULL,
 PRIMARY KEY(`id_status`)) ENGINE = InnoDB;
 
 -- CREATE TABLE STATUS BARANG KELUAR
 -- SUKSES
--- TUNDA
+-- PENDING
 -- GAGAL
 
+-- CREATE TABLE PEMBELIAN
+CREATE TABLE `db_mis`.`tbl_pembelian`(
+`id_pembelian` VARCHAR(8) NOT NULL,
+`id_inventory` VARCHAR(8) NOT NULL,
+`tgl_pembelian` DATE NOT NULL,
+`id_pic` VARCHAR(8) NOT NULL,
+`id_status` VARCHAR(1) NOT NULL,
+`qty` CHAR(9) NOT NULL,
+`remarks` TEXT NOT NULL,
+PRIMARY KEY(`id_pembelian`)) ENGINE = InnoDB;
+
+
+
+-- CREATE TABLE BARANG MASUK
+CREATE TABLE `db_mis`.`tbl_barang_masuk`(
+`id_barang_masuk` VARCHAR(8) NOT NULL,
+`id_inventory` VARCHAR(8) NOT NULL,
+`tanggal_masuk` DATE NOT NULL,
+`id_pic` VARCHAR(8) NOT NULL,
+`qty` CHAR(9) NOT NULL,
+`remarks` TEXT NOT NULL,
+PRIMARY KEY(`id_barang_masuk`)) ENGINE = InnoDB;

@@ -1,11 +1,6 @@
 <table class="table table-hover">
-
     <script>
-        $(document).ready(function(){
-            $(function () {
-            $('[data-toggle="tooltip"]').tooltip()
-            });
-        });
+
     </script>
 
     <style>
@@ -30,60 +25,59 @@
 
   <tbody>
 
+  <?php 
+  include '../../session/koneksi.php';
+  $no = 1;
+  $queryData = "SELECT * FROM vw_inventory WHERE qty > 0 ORDER BY nama_barang ASC";
+  $runQuery = mysqli_query($koneksi,$queryData);
+  while ($hasilQuery = mysqli_fetch_array($runQuery)) {
+    # code...
+    ?>
     <tr>
-      <th scope="row justify-content-center">1</th>
-      <td>Mata bor</td>
-      <td>Tapping</td>
-      <td>8mm</td>
-      <td>Tungsten CA</td>
-      <td>25</td>
       <td>
-        <button class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Detail Barang">
-            <i class="fa-solid fa-eye"></i>
+        <!-- No -->
+        <?php echo $no++; ?>
+      </td>
+
+      <td>
+        <!-- Nama -->
+        <?php echo $hasilQuery['nama_barang']; ?>
+      </td>
+
+      <td>
+        <!-- Tipe -->
+        <?php echo $hasilQuery['nama_tipe'] ?>
+      </td>
+
+      <td>
+        <!-- Ukuran -->
+        <?php echo $hasilQuery['nama_ukuran'] ?>
+      </td>
+
+      <td>
+        <!-- Material -->
+        <?php echo $hasilQuery['nama_material'] ?>
+      </td>
+
+      <td>
+        <!-- Qty -->
+        <?php echo $hasilQuery['qty'] ?>
+      </td>
+
+      <td>
+        <!-- Tombol Aksi -->
+        <button type="button" class="btn btn-primary">
+          <i class="fa-solid fa-eye"></i>
         </button>
 
-        <button class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Transfer Barang">
-            <i class="fas fa-share"></i>
+        <button type="button" class="btn btn-success">
+          <i class="fas fa-share"></i>
         </button>
       </td>
     </tr>
-
-    <tr>
-      <th scope="row justify-content-center">2</th>
-      <td>Mata bor</td>
-      <td>Tapping</td>
-      <td>8mm</td>
-      <td>Tungsten CA</td>
-      <td>25</td>
-      <td>
-        <button class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Detail Barang">
-            <i class="fa-solid fa-eye"></i>
-        </button>
-
-        <button class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Transfer Barang">
-            <i class="fas fa-share"></i>
-        </button>
-      </td>
-    </tr>
-
-    <tr>
-      <th scope="row justify-content-center">1</th>
-      <td>Mata bor</td>
-      <td>Tapping</td>
-      <td>8mm</td>
-      <td>Tungsten CA</td>
-      <td>25</td>
-      <td>
-        <button class="btn btn-primary" data-toggle="tooltip" data-placement="left" title="Detail Barang">
-            <i class="fa-solid fa-eye"></i>
-        </button>
-
-        <button class="btn btn-success" data-toggle="tooltip" data-placement="bottom" title="Transfer Barang">
-            <i class="fas fa-share"></i>
-        </button>
-      </td>
-    </tr>
-
+    <?php
+  }
+  ?>
   </tbody>
 
 </table>

@@ -472,6 +472,43 @@ switch ($_GET['aksi']) {
             $run_updateMaterial = mysqli_query($koneksi,$query_tblMaterialBarang);
             $run_updateQty = mysqli_query($koneksi,$query_tblInventory);
             break;
+
+        case 'simpan_data_request_barang':
+            # code...
+            // case ini nyimpen ke 2 table
+            $unique_id_request_barang = '0123456789ABCDEFGHIJKLMNOPQRSTUVWQYZ';
+            $output_id_request_barang = substr(str_shuffle($unique_id_request_barang),0,8);
+
+            // Nilai default saat requst pertama kali
+            $status_request_barang = "B1";
+            // end nilai default
+
+            // Tanggal live
+            $dateNow = date("Y-m-d");
+
+            $id_inventory = $_POST['name_id_inventory_form_permintaan_barang_master'];
+            $id_tipe_request = $_POST['name_pilih_tipe_request_form_permintaan_barang_master'];
+            $qty_barang = $_POST['name_masukkan_quantity_form_permintaan_barang_master'];
+            $remarks_barang = $_POST['name_catatan_form_permintaan_barang_master'];
+
+            // Table 1
+            $sql_simpanRequets = "INSERT INTO tbl_request_barang(id_request,
+            id_jenis_request,
+            id_inventory,date_time,
+            qty,
+            remarks)VALUES('$output_id_request_barang','$id_tipe_request','$id_inventory','$dateNow','$qty_barang','$remarks_barang')";
+
+            // Table 2
+            $sql_simpanStatusRequest = "INSERT INTO tbl_status_request_barang(id_request,
+            id_inventory,
+            id_status_request,
+            id_jenis_request)VALUES('$output_id_request_barang',
+            '$id_inventory',
+            '$status_request_barang','$id_tipe_request')";
+
+            $simpanRequest = mysqli_query($koneksi,$sql_simpanRequets);
+            $simpanStatus = mysqli_query($koneksi,$sql_simpanStatusRequest);
+            break;
     
     default:
         # code...

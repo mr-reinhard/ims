@@ -148,7 +148,7 @@ tbmasterstatus.id_status = tbregkaryawan.id_status
 -- CREATE TABLE DEPARTEMEN
 -- WAREHOUSE
 -- PURCHASING
--- PRODUCTION -> stag
+-- PRODUCTION
 -- ENGINEERING -> stag
 -- QUALITY CONTROL -> stag
 -- SALES -> stag
@@ -304,30 +304,100 @@ FROM tbl_barang_masuk tblbarangmasuk
 INNER JOIN vw_inventory vwinventory ON
 vwinventory.id_inventory = tblbarangmasuk.id_inventory
 
+-- CREATE TABLE MASTER REQUEST
+-- PURCHASING = A1
+-- PRODUKSI = A2
+CREATE TABLE `db_mis`.`tbl_master_jenis_request_barang`(
+`id_jenis_request` VARCHAR(2) NOT NULL,
+`jenis_request` VARCHAR(10) NOT NULL,
+PRIMARY KEY(`id_jenis_request`)) ENGINE = InnoDB;
 
-
--- CREATE TABLE BARANG KELUAR
-CREATE TABLE `db_mis`.`tbl_barang_keluar`(
-`id_barang_keluar` VARCHAR(8) NOT NULL,
+-- CREATE TABLE REQUEST BARANG
+CREATE TABLE `db_mis`.`tbl_request_barang`(
+`id_request` VARCHAR(8) NOT NULL,
+`id_jenis_request` VARCHAR(2) NOT NULL,
 `id_inventory` VARCHAR(8) NOT NULL,
-`tanggal_keluar` DATE NOT NULL,
-`id_pic` VARCHAR(8) NOT NULL,
+`date_time` DATE NOT NULL,
 `qty` CHAR(9) NOT NULL,
-`remarks` TEXT NOT NULL,
-PRIMARY KEY(`id_barang_keluar`)) ENGINE = InnoDB;
+`remarks` TEXT NOT NULL, 
+PRIMARY KEY(`id_request`)) ENGINE = InnoDB;
 
--- CREATE VIEW vw_barang_keluar
+-- CREATE TABLE MASTER STATUS REQUEST BARANG
+-- MENUNGGU = B1
+-- PROSES = B2
+-- SUKSES = B3
+-- GAGAL = B4
+CREATE TABLE `db_mis`.`tbl_master_status_request_barang`(
+`id_status_request` VARCHAR(2) NOT NULL,
+`nama_status` CHAR(8) NOT NULL,
+PRIMARY KEY(`id_status_request`)) ENGINE = InnoDB;
 
+-- CREATE TABLE STATUS TIPE REQUEST BARANG
+CREATE TABLE `db_mis`.`tbl_status_request_barang`(
+`id_request` VARCHAR(8) NOT NULL,
+`id_inventory` VARCHAR(8) NOT NULL,
+`id_status_request` VARCHAR(2) NOT NULL,
+`id_jenis_request` VARCHAR(2) NOT NULL ) ENGINE = InnoDB;
+
+-- CREATE VIEW vw_request_barang
+-- tbl_master_jenis_request_barang -> tbmasterjenisrequestbarang
+-- tbl_request -> tbrequest
+-- tbl_master_status_request_barang -> tbmasterstatusrequestbarang
+-- tbl_status_request_barang -> tbstatusrequestbarang
+CREATE VIEW vw_request_barang AS SELECT
+tbrequest.id_request,
+tbrequest.id_inventory,
+tbrequest.id_jenis_request,
+tbmasterstatusrequestbarang.id_status_request,
+vwinventory.nama_barang,
+tbrequest.qty,
+tbmasterstatusrequestbarang.nama_status,
+tbmasterjenisrequestbarang.jenis_request,
+tbrequest.date_time,
+tbrequest.remarks
+FROM tbl_status_request_barang tbstatusrequestbarang
+INNER JOIN tbl_request_barang tbrequest ON
+tbrequest.id_request = tbstatusrequestbarang.id_request
+INNER JOIN tbl_master_status_request_barang tbmasterstatusrequestbarang ON
+tbmasterstatusrequestbarang.id_status_request = tbstatusrequestbarang.id_status_request
+INNER JOIN vw_inventory vwinventory ON
+vwinventory.id_inventory = tbstatusrequestbarang.id_inventory
+INNER JOIN tbl_master_jenis_request_barang tbmasterjenisrequestbarang ON
+tbmasterjenisrequestbarang.id_jenis_request = tbstatusrequestbarang.id_jenis_request
+
+-- CREATE VIEW vw_request_details FROM vw_request_barang
+CREATE VIEW vw_request_barang_details AS SELECT
+vwreqbarang.id_request,
+vwreqbarang.id_inventory,
+vwinventory.nama_barang,
+vwinventory.nama_tipe,
+vwinventory.nama_ukuran,
+vwinventory.nama_material,
+vwreqbarang.remarks
+FROM vw_request_barang vwreqbarang
+INNER JOIN vw_inventory vwinventory ON
+vwinventory.id_inventory = vwreqbarang.id_inventory
+
+
+-- =======================================================================
 
 -- CREATE TABLE MASTER STATUS PEMBELIAN
--- PROSES
--- SUKSES
--- GAGAL
--- PENDING
+-- PROSES = C1
+-- SUKSES = C2
+-- GAGAL = C3
 CREATE TABLE `db_mis`.`tbl_master_status_pembelian`(
-`id_status` CHAR(1) NOT NULL,
+`id_status` CHAR(2) NOT NULL,
 `nama_status` CHAR(7) NOT NULL,
 PRIMARY KEY(`id_status`)) ENGINE = InnoDB;
+
+-- CREATE TABLE STATUS PEMBELIAN
+CREATE TABLE `db_mis`.`tbl_status_pembelian`(
+`id_pembelian` VARCHAR(8) NOT NULL,
+`id_request` VARCHAR(8) NOT NULL,
+`id_status_request` VARCHAR(2) NOT NULL,
+PRIMARY KEY(`id_status_request`)) ENGINE = InnoDB;
+
+
 
 -- CREATE TABLE STATUS BARANG KELUAR
 -- SUKSES
@@ -337,7 +407,7 @@ PRIMARY KEY(`id_status`)) ENGINE = InnoDB;
 -- CREATE TABLE PEMBELIAN
 CREATE TABLE `db_mis`.`tbl_pembelian`(
 `id_pembelian` VARCHAR(8) NOT NULL,
-`id_inventory` VARCHAR(8) NOT NULL,
+`id_request` VARCHAR(8) NOT NULL,
 `tgl_pembelian` DATE NOT NULL,
 `id_pic` VARCHAR(8) NOT NULL,
 `id_status` VARCHAR(1) NOT NULL,
@@ -356,3 +426,13 @@ CREATE TABLE `db_mis`.`tbl_barang_masuk`(
 `qty` CHAR(9) NOT NULL,
 `remarks` TEXT NOT NULL,
 PRIMARY KEY(`id_barang_masuk`)) ENGINE = InnoDB;
+
+-- CREATE TABLE BARANG KELUAR
+CREATE TABLE `db_mis`.`tbl_barang_keluar`(
+`id_barang_keluar` VARCHAR(8) NOT NULL,
+`id_inventory` VARCHAR(8) NOT NULL,
+`tanggal_keluar` DATE NOT NULL,
+`id_pic` VARCHAR(8) NOT NULL,
+`qty` CHAR(9) NOT NULL,
+`remarks` TEXT NOT NULL,
+PRIMARY KEY(`id_barang_keluar`)) ENGINE = InnoDB;

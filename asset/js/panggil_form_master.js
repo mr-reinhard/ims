@@ -242,4 +242,26 @@ function load_form_tambah_departemen(){
   });
 }
 
+// load form request barang dari module warehouse
+function load_form_list_barang_permintaan(){
+  $.ajax({
+    url:'../master/gudang/permintaan/list_barang.php',
+    type:'GET',
+    success:function(data){
+      $('#main_content_master').html(data)
+    }
+  });
+}
+
+// load form list permintaan di module pembelian
+function load_form_list_request_pembelian(){
+  $.ajax({
+    url:'../master/pembelian/permintaan_pembelian.php',
+    type:'GET',
+    success:function(data){
+      $('#main_content_master').html(data)
+    }
+  });
+}
+
 //========================================================================
